@@ -1,0 +1,258 @@
+/* Variables for colors */
+:root {
+  --main-bg-color: #c1c1c1;
+  --secondary-bg-color: #3b5a70;
+  --footer-text-color: white;
+  --button-bg-color: #bcbebf;
+  --button-hover-bg-color: #e8e8e8;
+  --card-border-color: #a9aeb2;
+  --container-light-color: #b9b9b9;
+  --container-dark-color: #2a5e71;
+}
+
+
+
+a {
+  color: inherit;
+  align-self: center;
+  text-decoration: dashed;
+
+}
+.gold{
+  color: rgb(255, 255, 239);
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(115deg, var(--main-bg-color), var(--secondary-bg-color));
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li {
+  padding: 10px;
+}
+h2 {
+  margin: 10px;
+  text-align: center;
+}
+
+.box-content {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease;
+}
+
+p {
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  color: var(--footer-text-color);
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.title {
+  font-size: 5em;
+  transition: all 4.5s ease;
+
+}
+
+
+.math-content {
+  width: 100%; /* Ensures the content fits the card */
+  text-align: center;
+  font-size: 1.1em; /* Adjust font size for readability */
+  line-height: 1.6; /* Improves line spacing */
+  margin: 0; /* Resets margin for clean alignment */
+  padding: 10px; /* Adds spacing within the card */
+  word-wrap: break-word; /* Ensures math content wraps properly */
+}
+
+.title-box {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 40vh;
+  padding: 20px;
+  margin: 10vh auto;
+  background-image: radial-gradient(var(--container-dark-color) 10%, var(--container-light-color) 90%);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 80px;
+  transition: all 4.5s ease;
+  border: 1px solid #b6b6b6;
+
+}
+
+.title-box:hover {
+  border: 10px solid #ececec;
+  filter: drop-shadow(0 0 20px #d6d6d6);
+  border-radius: 110px;
+}
+
+.title-box:hover .title {
+  color: #ececec;
+}
+
+.section-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  background-image: radial-gradient(var(--container-dark-color) 10%, var(--container-light-color) 90%);
+  width: 90%;
+  max-width: 500px;
+  height: 250px;
+  padding: 55px;
+  margin: 20px auto;
+  border: 4px solid var(--card-border-color);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.5s ease;
+  animation: hover-lightly 13s infinite alternate;
+  animation-play-state: running;
+  word-wrap: break-word; /* Ensures teaxt wraps */
+  overflow-wrap: break-word; /* Compatible with more browsers */
+}
+
+.card:hover {
+  background-color: #c3c7cc;
+  border: 5px solid #eaeef1;
+  border-radius: 80px;
+  width: 95%;
+  max-width: 550px;
+  height: 300px;
+  filter: drop-shadow(0 0 20px #c9c9c9);
+  animation-play-state: paused;
+
+}
+
+.card:hover .box-content {
+  color: #c3c7cc;
+}
+.card.active {
+  width: 95%;
+  max-width: 60vw;
+  height: 60vh;
+  font-size: 1.2em;
+  border-radius: 80px;
+  background-color: #c3c7cc;
+  filter: drop-shadow(0 0 20px #c9c9c9);
+}
+.extra-text {
+  display: none; /* Hide by default */
+  margin-top: 10px;
+  
+}
+.card.active .extra-text {
+  display: block; /* Show when card is active */
+}
+
+.card.active .button {
+  display: block; /* Show when card is active */
+}
+
+.button {
+  background-color: var(--button-bg-color);
+  color: #373434;
+  border: solid 1px rgb(227, 225, 225);
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button.home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+@keyframes hover-lightly {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10vw);
+  }
+  100% {
+    transform: translateX(-10vw);
+  }
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  
+  /* Reduce Title Box Size */
+  .title-box {
+    width: 95%;
+    height: 30vh;
+    padding: 15px;
+    border-radius: 40px;
+    margin: 5vh auto;
+  }
+
+  .title {
+    font-size: 3em; /* Reduce title size */
+  }
+
+  /* Stack Cards Vertically */
+  .section-box {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  /* Reduce Card Size */
+  .card {
+    width: 95%;
+    max-width: 400px;
+    height: auto;
+    padding: 30px;
+    border-radius: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .card:hover {
+    width: 100%;
+    height: auto;
+    max-width: 420px;
+    border-radius: 40px;
+  }
+
+  /* Adjust Button Size */
+  .button {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
+
+  /* Stop Cards from Moving Side-to-Side */
+  @keyframes hover-lightly {
+    0%, 100% {
+      transform: translateX(0);
+    }
+  }
+}
