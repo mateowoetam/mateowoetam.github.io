@@ -24,7 +24,7 @@ body {
   padding: 0;
   width: 100%;
   background: linear-gradient(115deg, var(--main-bg-color), var(--secondary-bg-color));
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Shantell Sans", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,10 +74,8 @@ body {
 }
 
 /* Titles and Text */
-h2 {
-  margin: 10px;
-  text-align: center;
-  color: #c19bf5;
+h2, .content h2, .title, p, .extra-text, a, .gold, .button {
+  font-family: "Shantell Sans", cursive;
 }
 
 a {
