@@ -136,9 +136,9 @@ p {
 }
 
 .card {
-  width: 90%;
-  max-width: 600px; /* Adjust width dynamically */
-  padding: 40px;
+  width: 80%; /* Increase width to allow longer sentences */
+  max-width: 800px; /* Gives more space for text */
+  padding: 30px;
   margin: 20px auto;
   border-radius: 30px;
   border: 4px solid var(--card-border-color);
@@ -149,18 +149,19 @@ p {
   align-items: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  height: auto; /* Makes height adjust dynamically */
-  min-height: 200px; /* Prevents it from being too small */
+  height: auto; /* Allow dynamic height */
+  min-height: auto; /* Remove fixed min-height */
 }
+
 
 .extra-text {
   display: block;
-  font-size: 1.1em;
-  line-height: 1.6; /* Improves readability */
-  text-align: center;
+  font-size: 1.2em; /* Adjust for better readability */
+  line-height: 1.6; /* Space out lines */
+  text-align: justify; /* Make text stretch across the width */
+  max-width: 90%; /* Prevents text from being too compressed */
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 100%;
 }
 
 .card:hover {
