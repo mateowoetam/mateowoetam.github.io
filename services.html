@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mateo Orlaineta</title>
+  <title>Services - Mateo Orlineta</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
   <header class="navbar">
     <a href="index.html" class="title">Home</a>
     <div class="center-name">Mateo Orlaineta</div>
@@ -20,13 +18,13 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-  <!-- Background Section -->
   <main class="main-section">
-    <div class="overlay-text">Welcome to My Website! Work in Progress</div>
+    <services-content>
+      <h1>Our Services</h1>
+      <p>This is a placeholder for the services we offer.</p>
+    <services-content>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div>© 2025 My Website</div>
     <div>Contact: mateowoetam@proton.me | +52 1234567890</div>
@@ -85,7 +83,7 @@
     text-align: right;
     flex: 1;
   }
-    .main-section {
+  .main-section {
     flex: 1; /* Adjusted for header and footer */
     display: flex;
     background-image: url('./nix-dark.png');
@@ -140,6 +138,14 @@
     background-color: #444;
   }
 
+  h1 {
+    margin-top: 0;
+    color: #ffffff;
+  }
+  p {
+    margin-top: 0;
+    color: #ffffff;
+  }
   .hidden {
     display: none;
   }

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About - Mateo Orlineta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="title">Home</a>
+    <div class="center-name">Mateo Orlaineta</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu" class="hidden">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main-section">
+    <about-content>
+      <div class="cv-container">
+        <h1>Mateo Orlaineta Martínez Gama</h1>
+      <div class="links">
+          <a href="https://github.com/mateowoetam" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/mateo-orlaineta-67b577220?utm_source=share&&utm_content=profile" target="_blank">LinkedIn</a>
+          <a href="mailto:mateoorlaineta26@gmail.com">Email</a>
+        </div>
+        <div class="section">
+          <h2>Education</h2>
+          <p><b>Mohawk College of Applied Arts and Technology</b> (Graduated May 2024)<br>
+          Biotechnology Degree | 78.3 GPA<br>
+          Microbiology, pharmacology, genetics, bio-manufacturing, MS Access & Excel</p>
+
+          <p><b>Constructor University Bremen</b> (September 2024 – June 2025)<br>
+          Biochemistry and Cell Biology Bachelors<br>
+          Medicinal chemistry, cell biology, biochemistry, 64 hours of lab experience.</p>
+        </div>
+
+        <div class="section">
+          <h2>Work Experience</h2>
+          <p><b>Finca Trebolillos</b> (2018-2021)<br>
+          Coffee Processing Intern, Demeter/Biodynamic Practitioner<br>
+          Coffee cultivation, fermentation, and processing. Quality control, barista techniques.</p>
+
+          <p><b>Cafe Katsina</b> (2020-2021)<br>
+          Server, Cashier, Training Barista<br>
+          Customer service, POS system handling, inventory management.</p>
+
+          <p><b>FOSS Society Club</b> (2025-Present)<br>
+          President and Founder<br>
+          Taught club members about FOSS's mission and values, took charge of networking.</p>
+        </div>
+
+        <div class="section">
+          <h2>Skills</h2>
+          <p>Plasmid DNA Isolation, Gas Spectrophotometry, Aseptic Techniques<br>
+          HPLC, Western/Northern/Southern Blotting, qPCR, Gel Electrophoresis<br>
+          GNU/Linux, LibreOffice, Microsoft Excel & Access<br>
+          Languages: Spanish (Native), English (Fluent), German (A2), Japanese (N5)</p>
+        </div>
+
+      <div class="section">
+          <h2>Volunteering Work</h2>
+          <p><b>TECHO Latam</b> (2017) | Disaster Relief & House Building</p>
+          <p><b>Projects Abroad, Botswana</b> (2019) | Conservationist & Zoologist Apprentice</p>
+        </div>
+
+        <div class="section">
+          <h2>Interests</h2>
+          <p>Genetics: Genetic engineering, DNA xenotransplantation<br>
+          Linguistics: Morphology, conlangs, language exchange<br>
+          GNU/Linux: FOSS development, Wayland</p>
+        </div>
+
+      <div class="projects">
+
+          <h2>Projects</h2>
+          <h3><b><a href="https://github.com/mateowoetam/halmaklinuxsupport" target="_blank">halmaklinuxsupport</a></b></h3>
+          <p>Fork of <i>mirrorsonthewall/halmaklinuxsupport</i> Halmak layout for Linux<br>
+          now including an installer script with future plans for rpm-ostree support.</p>
+
+          <h3><b><a href="https://github.com/mateowoetam/tuxelbookgoscript" target="_blank">tuxelbookgoscript</a></b></h3>
+          <p>Recopilation of Pixelbook Linux drivers:<br> install audio drivers, keyboard udev rules, fixes, and firmware updates.</p>
+
+          <h3><b><a href="https://github.com/mateowoetam/configuration.nix" target="_blank">configuration.nix</a></b></h3>
+          <p>My personal NixOS configuration file (work in progress).</p>
+
+          <h3><b><a href="https://github.com/mateowoetam/minecraft-server.nix" target="_blank">minecraft-server.nix</a></b></h3>
+          <p>NixOS configuration file and flake for a Minecraft server.</p>
+
+          <h3><b><a href="https://github.com/mateowoetam/alacritty-conf" target="_blank">alacritty-conf</a></b></h3>
+          <p>Custom Alacritty configuration files with optimized appearance settings.</p>
+
+          <h3><b><a href="https://github.com/mateowoetam/fastfetch-config" target="_blank">fastfetch-config</a></b></h3>
+          <p>My personal Fastfetch configuration.</p>
+
+          <h3><b><a href="https://github.com/mateowoetam/rust-clock" target="_blank">rust-clock</a></b></h3>
+          <p>Rust script that displays an ASCII-style clock in the terminal.</p>
+        </div>
+      </div>
+    </about-content>
+  </main>
+
+
+  <footer class="footer">
+    <div>© 2025 My Website</div>
+    <div>Contact: mateowoetam@proton.me | +52 1234567890</div>
+    <div>Address: Calle Francisco i. Madero 15, Ciudad de México, MX 14000</div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("nav-menu");
+      menu.classList.toggle("hidden");
+    }
+  </script>
+
+</body>
+<style>
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right 0;
+    z-index: 1000;
+  }
+  .title {
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    flex: 1;
+  }
+
+  .title:hover {
+    text-decoration: underline;
+  }
+  .center-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    flex: 1;
+  }
+
+  .menu-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: right;
+    flex: 1;
+  }
+    .main-section {
+    flex: 1; /* Adjusted for header and footer */
+    display: flex;
+    background-image: url('/home/user/Documents/code/personal-website/nix-dark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  about-content {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  about-content a:hover {
+    text-decoration: underline; /* Optional: subtle hover effect */
+  }
+  .cv-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #000000;
+  }
+  .section {
+    background: #f9f9f9;
+    padding: 8px 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 2px solid  #000000;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+  }
+  .section:hover {
+    background: #89b4fa;
+    color: white
+  }
+  h2 {
+    margin-top: 0;
+    color: #000000;
+  }
+  .links {
+    margin-top: 20px;
+  }
+  .links a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border: 2px solid #000000;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  .links a:hover {
+    background-color: #89b4fa;
+    color: white;
+  }
+  .projects {
+    cursor: auto;
+    background: #f9f9f9;
+    margin: 15px 0;
+    padding: 8px 15px;
+    border: 2px solid  #000000;
+    color: #000000;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+  }
+  .projects a:hover {
+    background: #89b4fa;
+    color: white
+  }
+  .overlay-text {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px 30px;
+    font-size: 2em;
+    border-radius: 10px;
+  }
+  .footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
+  .overlay-text {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px 30px;
+    font-size: 2em;
+    border-radius: 10px;
+  }
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+  }
+
+  nav a:hover {
+    background-color: #444;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</html>
