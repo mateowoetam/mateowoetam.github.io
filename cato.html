@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mateo Orlaineta</title>
+  <title>Services - Mateo Orlineta</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
   <header class="navbar">
     <a href="index.html" class="title">Home</a>
     <div class="center-name">Mateo Orlaineta</div>
@@ -20,18 +18,13 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-  <!-- Background Section -->
   <main class="main-section">
-    <div class="overlay-text">Welcome to My Website! Work in Progress</div>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div>© 2025 Mateo Orlaineta</div>
     <div>Contact: mateowoetam@proton.me | +52 1234567890</div>
     <div>Address: Calle Francisco i. Madero 15, Ciudad de México, MX 14000</div>
-    <button class="cato-button" onclick="location.href='cato.html'">cato</button>
   </footer>
 
   <script>
@@ -86,11 +79,21 @@
     text-align: right;
     flex: 1;
   }
-    .main-section {
+  @keyframes colorCycle {
+    0% { background-color: red; }
+    14% { background-color: orange; }
+    28% { background-color: yellow; }
+    42% { background-color: green; }
+    57% { background-color: blue; }
+    71% { background-color: indigo; }
+    85% { background-color: violet; }
+    100% { background-color: red; } /* Loop back to the start */
+  }
+  .main-section {
     flex: 1; /* Adjusted for header and footer */
     display: flex;
-    background-image: url('./nix-dark.png');
-    background-size: cover;
+    background-image: url('./cato.gif');
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -98,6 +101,7 @@
     padding: 20px;
     align-items: center;
     justify-content: center;
+    animation: colorCycle 5s infinite;
   }
   .overlay-text {
     background: rgba(0, 0, 0, 0.5);
@@ -140,20 +144,14 @@
   nav a:hover {
     background-color: #444;
   }
-  .cato-button {
-    position: absolute; /* Position it relative to the footer */
-    right: 20px; /* Adjust as needed */
-    bottom: 10px; /* Adjust as needed */
-    background-color: transparent; /* Make background transparent */
-    border: none; /* Remove border */
-    color: transparent; /* Make text color transparent */
-    cursor: pointer; /* Change cursor to pointer */
-    font-size: 10px; /* Adjust size as needed */
-    transition: color 0.3s; /* Smooth transition for hover effect */
-  }
 
-  .cato-button:hover {
-    color: black; /* Change color on hover to make it visible */
+  h1 {
+    margin-top: 0;
+    color: #ffffff;
+  }
+  p {
+    margin-top: 0;
+    color: #ffffff;
   }
   .hidden {
     display: none;
