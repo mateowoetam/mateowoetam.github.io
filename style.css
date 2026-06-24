@@ -1,0 +1,375 @@
+:root {
+    --eff-black: #000000;
+    --eff-white: #ffffff;
+    --eff-red: #EB1414;
+    --eff-gray-dark: #121212;
+    --eff-gray-light: #f4f4f4;
+    --eff-border: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: var(--eff-white);
+    color: var(--eff-black);
+    line-height: 1.6;
+}
+
+/* --- Header / Top Bar --- */
+.top-banner {
+    background-color: var(--eff-black);
+    color: var(--eff-white);
+    padding: 10px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid var(--eff-red);
+}
+
+.top-banner a {
+    color: var(--eff-white);
+    text-decoration: underline;
+}
+
+header {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--eff-black);
+    padding-bottom: 20px;
+}
+
+.logo-area h1 {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: 0.5px;
+}
+
+.logo-area h1 span {
+    color: var(--eff-red);
+}
+
+.logo-area a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+}
+
+/* --- Main Layout --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* --- Content Blocks --- */
+h2 {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--eff-black);
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+a {
+    color: var(--eff-red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Project Cards (Cover Your Tracks Style) --- */
+.project-card {
+    border: 2px solid var(--eff-black);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--eff-white);
+    box-shadow: 5px 5px 0px var(--eff-black);
+    transition: all 0.2s ease;
+}
+
+.project-card:hover {
+    box-shadow: 8px 8px 0px var(--eff-red);
+    transform: translate(-3px, -3px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.project-title {
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.badge {
+    background-color: var(--eff-black);
+    color: var(--eff-white);
+    padding: 3px 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* --- Service Offer Cards --- */
+.service-card {
+    border: 2px solid var(--eff-black);
+    padding: 30px;
+    margin-bottom: 35px;
+    background-color: var(--eff-white);
+    box-shadow: 5px 5px 0px var(--eff-black);
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--eff-black);
+    padding-bottom: 15px;
+}
+
+.price-badge {
+    background-color: var(--eff-red);
+    color: var(--eff-white);
+    padding: 5px 12px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- Tech Tags & Lists --- */
+.tech-spec {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--eff-gray-light);
+    border-left: 4px solid var(--eff-black);
+}
+
+.tech-spec h4 {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: #e0e0e0;
+    color: var(--eff-black);
+    padding: 2px 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+}
+
+.checklist {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.checklist li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--eff-red);
+    font-weight: bold;
+}
+
+/* --- Terminal Box --- */
+.terminal-block {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--eff-gray-dark);
+    color: #00ff00;
+    padding: 20px;
+    border: 2px solid var(--eff-black);
+    box-shadow: 5px 5px 0px var(--eff-black);
+    margin-bottom: 30px;
+    overflow-x: auto;
+    font-size: 0.95rem;
+}
+
+.terminal-block a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+.terminal-block a:hover {
+    color: var(--eff-white);
+}
+
+/* --- Sidebar & Interests --- */
+.sidebar-block {
+    background-color: var(--eff-gray-light);
+    padding: 20px;
+    border: 1px solid var(--eff-border);
+    margin-bottom: 20px;
+}
+
+.interests-list {
+    list-style: none;
+}
+
+.interests-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--eff-border);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.interests-list li::before {
+    content: "✓";
+    color: var(--eff-red);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.slogan-box {
+    background-color: var(--eff-black);
+    color: var(--eff-white);
+    padding: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.slogan-box h3 {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    color: var(--eff-red);
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.slogan-box p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.social-link {
+    display: block;
+    background: var(--eff-black);
+    color: var(--eff-white);
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.social-link:hover {
+    background: var(--eff-red);
+    color: var(--eff-white);
+    text-decoration: none;
+}
+
+.cta-link {
+    display: block;
+    background: var(--eff-red);
+    color: var(--eff-white);
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    box-shadow: 4px 4px 0px var(--eff-black);
+    transition: transform 0.1s;
+}
+
+.cta-link:hover {
+    background: var(--eff-black);
+    color: var(--eff-white);
+    text-decoration: none;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--eff-red);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--eff-black);
+    color: var(--eff-white);
+    margin-top: 60px;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: var(--eff-white);
+    text-decoration: underline;
+}
