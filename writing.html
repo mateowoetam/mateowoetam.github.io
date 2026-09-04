@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateo (@mateowoetam) | Articles & Writings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Share+Tech+Mono&family=Work+Sans:wght=400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+   <body>
+      <div class="top-banner">
+         <div>// PUBLIC EDUCATION & GUIDES</div>
+         <div>STATUS: <span style="color: var(--ctp-green); font-weight:bold;">ENCRYPTED</span></div>
+      </div>
+      <header>
+         <div class="logo-area">
+            <h1><a href="index.html">ARTICLES<span> & GUIDES</span></a></h1>
+         </div>
+         <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
+            <nav style="font-family: 'Share Tech Mono', monospace; font-size: 1.1rem; margin-top: 5px;">
+                <a href="writing.html" style="color: var(--ctp-text); text-transform: uppercase; font-weight: 800;">[ Texts ]</a>
+                <a href="services.html" style="color: var(--ctp-red); text-transform: uppercase; font-weight: 800;">[ Services ]</a>
+                <a href="contact.html" style="color: var(--ctp-red); text-transform: uppercase; font-weight: 800;">[ Contact ]</a>
+                <a href="index.html" style="margin-right: 15px; color: var(--ctp-red); text-transform: uppercase;">[ Home ]</a>
+            </nav>
+         </div>
+      </header>
+ <div class="container">
+         <main>
+            <section style="margin-bottom: 40px;">
+               <h2>Digital Freedom & Security Writings</h2>
+               <p>Detailed breakdowns on hardening your devices, ending corporate data extraction, and reclaiming total sovereignty over your local computing hardware.</p>
+            </section>
+
+            <section>
+               <!-- Dynamic container for fetched articles -->
+               <div id="articles-container">
+                  <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">Loading articles...</p>
+               </div>
+            </section>
+         </main>
+
+         <aside>
+            <div class="sidebar-block">
+               <h2>Core Topics</h2>
+               <ul class="interests-list">
+                  <li>Zero-Knowledge Security</li>
+                  <li>FOSS & Open Standards</li>
+                  <li>Self-Hosted Architecture</li>
+                  <li>Hardware Security Keys</li>
+               </ul>
+            </div>
+         </aside>
+      </div>
+
+      <footer>
+         <p>2026 Mateo. Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+      </footer>
+
+      <!-- Fetch script placed before closing body tag -->
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const container = document.getElementById('articles-container');
+
+          fetch('./writing/articles.json')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+                  return response.json();
+              })
+              .then(articles => {
+                  container.innerHTML = ''; // Clear loading indicator
+
+                  articles.forEach(article => {
+                      const card = document.createElement('div');
+                      card.className = 'project-card';
+
+                      card.innerHTML = `
+                          <div class="project-header">
+                              <div class="project-title">${article.title}</div>
+                              <span class="badge">${article.badge}</span>
+                          </div>
+                          <p>${article.description}</p>
+                          <a href="${article.url}">Read Full Article →</a>
+                      `;
+
+                      container.appendChild(card);
+                  });
+              })
+              .catch(error => {
+                  console.error('Error loading articles:', error);
+                  container.innerHTML = `<p style="color: var(--ctp-red);">Failed to load articles. Check console for details.</p>`;
+              });
+      });
+      </script>
+   </body>
+</html>

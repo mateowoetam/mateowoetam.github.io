@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestores de Contraseñas y Autenticación Cero-Conocimiento | Mateo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Share+Tech+Mono&family=Work+Sans:wght=400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="top-banner">
+        <div>// ARTICLE VIEW</div>
+        <div>STATUS: <span style="color: var(--ctp-green); font-weight:bold;">ENCRYPTED</span></div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <h1><a href="../writing.html">SECURITY &<br><span>PRIVACY</span></a></h1>
+        </div>
+        <nav>
+            <a href="../writing.html" style="color: var(--ctp-red); font-weight: 800;">[ ← Back to Texts ]</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <section style="margin-bottom: 30px;">
+              <div>
+                <h2>Gestores de Contraseñas y Autenticación Cero-Conocimiento</h2>
+                <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">CATEGORÍA: CIBERSEGURIDAD / 2FA</p>
+              </div>
+              <a href="files/contraseñas.odt" download style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ ↓ RAW .ODT ]</a>
+            </section>
+
+            <article style="line-height: 1.8;">
+                <p>La autenticación en internet tradicional (basada en recordar una misma contraseña corta para múltiples sitios) funciona en la práctica como dejar una copia de la llave de tu casa en la puerta de cada negocio que visitas. Si una sola de esas empresas sufre una filtración de datos, los atacantes prueban esa misma combinación de correo y contraseña en cientos de servicios automatizadamente (ataques de credential stuffing). Confiar en la memoria humana o guardar credenciales en el navegador web expone tu identidad digital a robos de cuenta, suplantación y pérdidas financieras irreversibles.</p>
+
+                <p>Adoptar un gestor de contraseñas de código abierto, combinado con autenticación de dos factores (2FA) y llaves de seguridad físicas, implica cambiar este esquema por uno de seguridad criptográfica de conocimiento cero (Zero-Knowledge), donde cada cuenta tiene un acceso único e imposible de adivinar, respaldado por hardware que solo tú posees.</p>
+
+                <h3>Gestores de Contraseñas: Unicidad y Cifrado Zero-Knowledge</h3>
+                <p>Un gestor de contraseñas de código abierto funciona como una bóveda cifrada. En lugar de memorizar decenas de contraseñas, solo recuerdas una sola contraseña maestra fuerte. El gestor genera contraseñas aleatorias de alta complejidad para cada servicio.</p>
+                <ul>
+                    <li><strong>Cifrado de Conocimiento Cero (Zero-Knowledge):</strong> Los datos se cifran en tu dispositivo antes de enviarse a cualquier servidor. El proveedor de la plataforma o tu propio servidor de autohospedaje nunca pueden leer tus claves ni acceder a tu bóveda.</li>
+                    <li><strong>Protección contra Phishing:</strong> Los gestores reconocen la dirección URL exacta del sitio. Si ingresas a una página falsa que suplanta a tu banco, el gestor no autocompletará los datos porque el dominio no coincide, neutralizando el engaño.</li>
+                </ul>
+
+                <h3>Autenticación de Dos Factores (2FA): La Segunda Capa de Defensa</h3>
+                <p>El 2FA exige dos elementos para iniciar sesión: algo que sabes (tu contraseña) y algo que tienes (un código temporal o un dispositivo físico).</p>
+                <ul>
+                    <li><strong>SMS (Vulnerable):</strong> Los códigos enviados por mensaje de texto son interceptables mediante duplicación de SIM (SIM Swapping) o ataques a redes telefónicas. Deben evitarse siempre que sea posible.</li>
+                    <li><strong>Aplicaciones Authenticator (TOTP):</strong> Generan códigos de 6 dígitos que cambian cada 30 segundos localmente en tu teléfono. Es una alternativa accesible y significativamente más segura que el SMS.</li>
+                    <li><strong>Llaves de Seguridad de Hardware (FIDO2 / WebAuthn):</strong> El estándar de oro en seguridad digital. Es un dispositivo USB/NFC físico que debes tocar físicamente para autorizar el acceso. Es matemáticamente inmune al phishing, ya que la llave valida criptográficamente el dominio antes de entregar el acceso.</li>
+                </ul>
+
+                <h3>Herramientas Recomendadas</h3>
+                <p><strong>Gestores de Contraseñas:</strong></p>
+                <ul>
+                    <li><strong>Bitwarden / Vaultwarden:</strong> Multiplataforma, de código abierto, con cifrado Zero-Knowledge y opción de autohospedaje local.</li>
+                    <li><strong>KeePassXC:</strong> Gestor 100% offline; guarda tu base de datos localmente en un archivo cifrado en tu computadora.</li>
+                </ul>
+
+                <p><strong>Llaves de Seguridad de Hardware (FIDO2):</strong></p>
+                <ul>
+                    <li><strong>SoloKeys / Nitrokey:</strong> Alternativas de hardware y firmware 100% de código abierto.</li>
+                    <li><strong>Thetis keys:</strong> Alternativas para autenticación FIDO2 / WebAuthn con USB-A, USB-C y NFC.</li>
+                    <li><strong>YubiKey (Serie 5 / FIPS):</strong> Llaves físicas altamente resistentes compatibles con USB-A, USB-C y NFC.</li>
+                </ul>
+            </article>
+        </main>
+
+        <aside>
+            <div class="sidebar-block">
+                <h2>Acciones de Seguridad</h2>
+                <ul class="interests-list">
+                    <li>Migrar a Bitwarden / KeePassXC</li>
+                    <li>Activar 2FA con TOTP</li>
+                    <li>Adquirir Llave FIDO2</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>2026 Mateo. Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    </footer>
+</body>
+</html>

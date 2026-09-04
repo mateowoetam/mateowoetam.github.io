@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Gestores de Contraseñas y Autenticación Cero-Conocimiento",
+    "badge": "Security / 2FA",
+    "description": "Por qué confiar en la memoria humana o guardar credenciales en el navegador expone tu identidad digital, y cómo implementar contraseñas únicas con llaves físicas FIDO2.",
+    "url": "./writing/contrasenas.html"
+  }
+]
