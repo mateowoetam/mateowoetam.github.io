@@ -43,14 +43,14 @@
 
                 <h3>Gestores de Contraseñas: Unicidad y Cifrado Zero-Knowledge</h3>
                 <p>Un gestor de contraseñas de código abierto funciona como una bóveda cifrada. En lugar de memorizar decenas de contraseñas, solo recuerdas una sola contraseña maestra fuerte. El gestor genera contraseñas aleatorias de alta complejidad para cada servicio.</p>
-                <ul>
+                <ul style="padding-left: 25px;">
                     <li><strong>Cifrado de Conocimiento Cero (Zero-Knowledge):</strong> Los datos se cifran en tu dispositivo antes de enviarse a cualquier servidor. El proveedor de la plataforma o tu propio servidor de autohospedaje nunca pueden leer tus claves ni acceder a tu bóveda.</li>
                     <li><strong>Protección contra Phishing:</strong> Los gestores reconocen la dirección URL exacta del sitio. Si ingresas a una página falsa que suplanta a tu banco, el gestor no autocompletará los datos porque el dominio no coincide, neutralizando el engaño.</li>
                 </ul>
 
                 <h3>Autenticación de Dos Factores (2FA): La Segunda Capa de Defensa</h3>
                 <p>El 2FA exige dos elementos para iniciar sesión: algo que sabes (tu contraseña) y algo que tienes (un código temporal o un dispositivo físico).</p>
-                <ul>
+                <ul style="padding-left: 25px;">
                     <li><strong>SMS (Vulnerable):</strong> Los códigos enviados por mensaje de texto son interceptables mediante duplicación de SIM (SIM Swapping) o ataques a redes telefónicas. Deben evitarse siempre que sea posible.</li>
                     <li><strong>Aplicaciones Authenticator (TOTP):</strong> Generan códigos de 6 dígitos que cambian cada 30 segundos localmente en tu teléfono. Es una alternativa accesible y significativamente más segura que el SMS.</li>
                     <li><strong>Llaves de Seguridad de Hardware (FIDO2 / WebAuthn):</strong> El estándar de oro en seguridad digital. Es un dispositivo USB/NFC físico que debes tocar físicamente para autorizar el acceso. Es matemáticamente inmune al phishing, ya que la llave valida criptográficamente el dominio antes de entregar el acceso.</li>
@@ -58,30 +58,43 @@
 
                 <h3>Herramientas Recomendadas</h3>
                 <p><strong>Gestores de Contraseñas:</strong></p>
-                <ul>
-                    <li><strong>Bitwarden / Vaultwarden:</strong> Multiplataforma, de código abierto, con cifrado Zero-Knowledge y opción de autohospedaje local.</li>
+                <ul style="padding-left: 25px;">
+                    <li><strong>Bitwarden / Vaultwarden:</strong> Multiplataforma, de código abierto, con cifrado Zero-Knowledge, hospedaje remoto y lautohospedaje local..</li>
                     <li><strong>KeePassXC:</strong> Gestor 100% offline; guarda tu base de datos localmente en un archivo cifrado en tu computadora.</li>
+                </ul>
+                <p><strong>Autenticadores de Dos Factores (TOTP):</strong></p>
+                <ul style="padding-left: 25px;">
+                    <li><strong>Bitwarden Authenticator:</strong> Multiplataforma, de código abierto, con cifrado Zero-Knowledge, hospedaje remoto y lautohospedaje local.</li>
+                    <li><strong>Stratum Auth:</strong> Para Android, de código abierto, completamente de autohospedaje local.</li>
+                    <li><strong>979 2FA:</strong> Para Android, de código abierto, completamente de autohospedaje local. Disponible en Accrescent</li>
                 </ul>
 
                 <p><strong>Llaves de Seguridad de Hardware (FIDO2):</strong></p>
-                <ul>
+                <ul style="padding-left: 25px;">
                     <li><strong>SoloKeys / Nitrokey:</strong> Alternativas de hardware y firmware 100% de código abierto.</li>
                     <li><strong>Thetis keys:</strong> Alternativas para autenticación FIDO2 / WebAuthn con USB-A, USB-C y NFC.</li>
                     <li><strong>YubiKey (Serie 5 / FIPS):</strong> Llaves físicas altamente resistentes compatibles con USB-A, USB-C y NFC.</li>
                 </ul>
+
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid var(--ctp-surface0);">
+
+                <section style="margin-top: 30px;">
+                    <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">// FUENTES Y RECURSOS</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        <a href="https://bitwarden.com/products/personal/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ BITWARDEN ]</a>
+                        <a href="https://bitwarden.com/products/authenticator/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ BITWARDEN AUTHENTICATOR ]</a>
+                        <a href="https://keepassxc.org/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ KEEPASSXC ]</a>
+                        <a href="https://www.keepassdx.com/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ KEEPASSDX ]</a>
+                        <a href="https://stratumauth.com/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ STRATUM AUTH ]</a>
+                        <a href="https://codeberg.org/979/2fa" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ 979 2FA ]</a>
+                        <a href="https://shop.nitrokey.com/shop/category/nitrokeys-7" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ NITROKEYS ]</a>
+                        <a href="https://solokeys.com/collections/all" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ SOLOKEYS ]</a>
+                        <a href="https://thetis.io/collections/all-keys" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ THETIS KEYS ]</a>
+                        <a href="https://www.yubico.com/se/store/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ YUBIKEYS ]</a>
+                    </div>
+                </section>
             </article>
         </main>
-
-        <aside>
-            <div class="sidebar-block">
-                <h2>Acciones de Seguridad</h2>
-                <ul class="interests-list">
-                    <li>Migrar a Bitwarden / KeePassXC</li>
-                    <li>Activar 2FA con TOTP</li>
-                    <li>Adquirir Llave FIDO2</li>
-                </ul>
-            </div>
-        </aside>
     </div>
 
     <footer>
