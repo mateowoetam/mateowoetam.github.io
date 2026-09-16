@@ -37,54 +37,72 @@
             </section>
 
             <section>
-               <!-- Dynamic container for fetched articles -->
-               <div id="articles-container">
-                  <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">Loading articles...</p>
-               </div>
+                <div id="articles-container">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title">
+                            Gestores de Contraseñas y Autenticación 2FA
+                            </div>
+
+                            <span class="badge">Security / 2FA</span>
+                        </div>
+
+                        <p>
+                            Por qué confiar en la memoria humana o guardar credenciales en el
+                            navegador expone tu identidad digital, y cómo implementar
+                            contraseñas únicas con llaves físicas FIDO2.
+                        </p>
+
+                        <a href="./writing/contrasenas.html">
+                            Read Full Article →
+                        </a>
+                    </div>
+                </div>
+                <div id="articles-container">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title">
+                            LINUX & SOBERANÍA
+                            </div>
+
+                            <span class="badge">SISTEMAS OPERATIVOS / PRIVACIDAD</span>
+                        </div>
+
+                        <p>
+                            Por qué los sistemas operativos comerciales comprometen tu privacidad y cómo recuperar la soberanía digital y el control de tu hardware mediante Linux y el software libre.
+                        </p>
+
+                        <a href="./writing/linux.html">
+                            Read Full Article →
+                        </a>
+                    </div>
+                </div>
+                <div id="articles-container">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title">
+                            Redes Privadas Virtuales (VPN) y Privacidad
+                            </div>
+
+                            <span class="badge">Network / Privacy</span>
+                        </div>
+
+                        <p>
+                            Por qué una VPN es fundamental para la seguridad en redes de riesgo, evitar el seguimiento de tu ISP y mantener la privacidad en tránsito utilizando proveedores sin KYC.
+                        </p>
+
+                        <a href="./writing/vpn.html">
+                            Read Full Article →
+                        </a>
+                    </div>
+                </div>
             </section>
+
          </main>
       </div>
 
       <footer>
          <p>2026 Mateo. Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
       </footer>
-
-      <!-- Fetch script placed before closing body tag -->
-      <script>
-      document.addEventListener('DOMContentLoaded', () => {
-          const container = document.getElementById('articles-container');
-
-          fetch('./writing/articles.json')
-              .then(response => {
-                  if (!response.ok) {
-                      throw new Error(`HTTP error! status: ${response.status}`);
-                  }
-                  return response.json();
-              })
-              .then(articles => {
-                  container.innerHTML = ''; // Clear loading indicator
-
-                  articles.forEach(article => {
-                      const card = document.createElement('div');
-                      card.className = 'project-card';
-
-                      card.innerHTML = `
-                          <div class="project-header">
-                              <div class="project-title">${article.title}</div>
-                              <span class="badge">${article.badge}</span>
-                          </div>
-                          <p>${article.description}</p>
-                          <a href="${article.url}">Read Full Article →</a>
-                      `;
-
-                      container.appendChild(card);
-                  });
-              })
-              .catch(error => {
-                  console.error('Error loading articles:', error);
-                  container.innerHTML = `<p style="color: var(--ctp-red);">Failed to load articles. Check console for details.</p>`;
-              });
-      });
-      </script>
    </body>
 </html>
