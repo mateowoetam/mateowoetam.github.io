@@ -37,43 +37,79 @@
             </section>
 
             <article style="line-height: 1.8;">
-                <p>La autenticación en internet tradicional (basada en recordar una misma contraseña corta para múltiples sitios) funciona en la práctica como dejar una copia de la llave de tu casa en la puerta de cada negocio que visitas. Si una sola de esas empresas sufre una filtración de datos, los atacantes prueban esa misma combinación de correo y contraseña en cientos de servicios automatizadamente (ataques de credential stuffing). Confiar en la memoria humana o guardar credenciales en el navegador web expone tu identidad digital a robos de cuenta, suplantación y pérdidas financieras irreversibles.</p>
+                <p>La autenticación en internet tradicional (basada en recordar una misma contraseña corta para múltiples sitios) funciona en la práctica como dejar una copia de la llave de tu casa en la puerta de cada negocio que visitas. Si una sola de las páginas con tu contraseña sufre una filtración de datos, los atacantes prueban esa misma combinación de correo y contraseña en cientos de servicios automatizadamente (ataques de credential stuffing). Confiar en la memoria humana o guardar credenciales en el navegador web expone tu identidad digital a robos de cuenta, suplantación y pérdidas financieras irreversibles.</p>
 
                 <p>Adoptar un gestor de contraseñas de código abierto, combinado con autenticación de dos factores (2FA) y llaves de seguridad físicas, implica cambiar este esquema por uno de seguridad criptográfica de conocimiento cero (Zero-Knowledge), donde cada cuenta tiene un acceso único e imposible de adivinar, respaldado por hardware que solo tú posees.</p>
 
-                <h3>Gestores de Contraseñas: Unicidad y Cifrado Zero-Knowledge</h3>
-                <p>Un gestor de contraseñas de código abierto funciona como una bóveda cifrada. En lugar de memorizar decenas de contraseñas, solo recuerdas una sola contraseña maestra fuerte. El gestor genera contraseñas aleatorias de alta complejidad para cada servicio.</p>
-                <ul style="padding-left: 25px;">
-                    <li><strong>Cifrado de Conocimiento Cero (Zero-Knowledge):</strong> Los datos se cifran en tu dispositivo antes de enviarse a cualquier servidor. El proveedor de la plataforma o tu propio servidor de autohospedaje nunca pueden leer tus claves ni acceder a tu bóveda.</li>
-                    <li><strong>Protección contra Phishing:</strong> Los gestores reconocen la dirección URL exacta del sitio. Si ingresas a una página falsa que suplanta a tu banco, el gestor no autocompletará los datos porque el dominio no coincide, neutralizando el engaño.</li>
-                </ul>
+                <h3>Gestores de Contraseñas</h3>
+                <p>Un gestor de contraseñas de código abierto es una aplicación que funciona como una bóveda cifrada. En lugar de memorizar decenas de contraseñas, solo recuerdas una sola contraseña maestra fuerte con la que entras a la bóveda. El gestor genera contraseñas aleatorias de alta complejidad (ej. <code>k9#mP$2x!L9qZ</code>) para cada servicio.</p>
+                <p>Un buen gestor de contraseñas tiene una bóveda cifrada y protección contra Phishing. Los datos se cifran en tu dispositivo antes de enviarse a cualquier servidor. El proveedor de la plataforma o tu propio servidor de autohospedaje nunca pueden leer tus claves ni acceder a tu bóveda. La protección contra Phishing reconoce la dirección URL exacta del sitio; si ingresas a una página falsa que suplanta a tu banco, el gestor no autocompletará los datos porque el dominio no coincide, neutralizando el engaño.</p>
 
                 <h3>Autenticación de Dos Factores (2FA): La Segunda Capa de Defensa</h3>
                 <p>El 2FA exige dos elementos para iniciar sesión: algo que sabes (tu contraseña) y algo que tienes (un código temporal o un dispositivo físico).</p>
-                <ul style="padding-left: 25px;">
-                    <li><strong>SMS (Vulnerable):</strong> Los códigos enviados por mensaje de texto son interceptables mediante duplicación de SIM (SIM Swapping) o ataques a redes telefónicas. Deben evitarse siempre que sea posible.</li>
-                    <li><strong>Aplicaciones Authenticator (TOTP):</strong> Generan códigos de 6 dígitos que cambian cada 30 segundos localmente en tu teléfono. Es una alternativa accesible y significativamente más segura que el SMS.</li>
+                <p>Existen distintas tecnologías para implementar 2FA, con niveles de seguridad muy variados:</p>
+                <ol style="padding-left: 25px;">
+                    <li><strong>SMS (Vulnerable):</strong> Los códigos enviados por mensaje de texto son interceptables mediante duplicación de SIM o ataques a redes telefónicas. Deben evitarse siempre que sea posible.</li>
+                    <li><strong>Aplicaciones de Autenticación Time-based One-Time Password (TOTP):</strong> Generan códigos de 6 dígitos que cambian cada 30 segundos localmente en tu teléfono con una llave secreta. Es una alternativa accesible y significativamente más segura que el SMS.</li>
                     <li><strong>Llaves de Seguridad de Hardware (FIDO2 / WebAuthn):</strong> El estándar de oro en seguridad digital. Es un dispositivo USB/NFC físico que debes tocar físicamente para autorizar el acceso. Es matemáticamente inmune al phishing, ya que la llave valida criptográficamente el dominio antes de entregar el acceso.</li>
+                </ol>
+
+                <p>Una estrategia integrada de autenticación ofrece inmunidad ante filtraciones masivas, ya que, si un sitio donde estás registrado es comprometido, los atacantes obtienen una clave que no funciona en ninguna de tus otras cuentas; además, proporciona un control total sobre el acceso, pues las llaves físicas de hardware impiden que alguien ingrese a tu cuenta de correo principal o gestor de contraseñas a distancia, incluso si conoce tu contraseña maestra, al no poseer el dispositivo físico. Asimismo, garantiza soberanía y portabilidad: al utilizar software libre y formatos abiertos, tus bases de datos de credenciales son tuyas y puedes exportarlas, respaldarlas o alojarlas en tus propios servidores en cualquier momento, sin quedar atrapado en ecosistemas propietarios.</p>
+
+                <h3>¿Cómo usar un gestor de contraseñas?</h3>
+                <p>La recomendación más sencilla y confiable es utilizar Bitwarden. Tiene aplicaciones para Android, iOS, Windows, macOS y Linux, además de extensiones para los principales navegadores.</p>
+                <p>Primero, crea una cuenta con tu correo electrónico y una contraseña maestra larga, única y fácil de recordar para ti, pero difícil de adivinar para otras personas. Esta contraseña será la única que necesitarás recordar, así que es importante no reutilizarla en ningún otro servicio y, si es posible, guardarla en un lugar seguro.</p>
+                <p>Después, instala Bitwarden en tus dispositivos y configúralo como tu gestor de contraseñas predeterminado. Así podrás guardar, completar y generar contraseñas directamente desde tus aplicaciones y sitios web. Si ya tienes contraseñas guardadas en otro gestor o en tu navegador, puedes importarlas siguiendo las <a href="https://bitwarden.com/help/import-data/" target="_blank">instrucciones oficiales</a>.</p>
+                <p>Una vez que hayas importado tus contraseñas, cambia las que sean débiles, repetidas o reutilizadas. Lo recomendable es utilizar una contraseña diferente y aleatoria para cada cuenta. Bitwarden puede generarlas y guardarlas automáticamente.</p>
+                <p>Por último, activa la autenticación de dos factores en tu cuenta de Bitwarden y conserva de forma segura los códigos de recuperación. Esto añade una capa adicional de protección en caso de que alguien descubra tu contraseña maestra.</p>
+
+                <h3>¿Cómo usar una aplicación de TOTP?</h3>
+                <p>Existen varias aplicaciones para generar códigos TOTP. Si necesitas sincronizarlos entre varios dispositivos, puedes utilizar <a href="https://bitwarden.com/products/authenticator/" target="_blank">Bitwarden Authenticator</a>. Esta opción funciona con la misma cuenta que el gestor de contraseñas de Bitwarden. Si prefieres mantener tus códigos de autenticación separados de tus contraseñas, puedes utilizar <a href="https://ente.com/auth/" target="_blank">Ente Auth</a>. Otra alternativa es <a href="https://stratumauth.com/" target="_blank">Stratum Auth</a>, que permite guardar las claves localmente en un dispositivo Android, sin sincronización en la nube.</p>
+                <p>Después de instalar la aplicación, entra en la cuenta que quieras proteger y busca en sus ajustes una opción como “Autenticación de dos factores”, “2FA” o “Aplicación de autenticación”. No todas las plataformas ofrecen esta función.</p>
+                <p>Cuando actives la autenticación de dos factores, el servicio mostrará un código QR o una clave de configuración. Escanea el código QR con tu aplicación TOTP o introduce la clave manualmente. La aplicación guardará esa clave y comenzará a generar códigos temporales, normalmente de seis dígitos y con una duración aproximada de 30 segundos.</p>
+                <p>El servicio te pedirá introducir uno de esos códigos para confirmar que la configuración se realizó correctamente. Después, cada vez que inicies sesión, además de tu contraseña tendrás que introducir el código generado por la aplicación.</p>
+                <p>Guarda también los códigos de recuperación que te proporcione el servicio y consérvalos en un lugar seguro. Estos códigos pueden ayudarte a recuperar el acceso si pierdes tu dispositivo. No compartas con nadie el código QR, la clave de configuración ni los códigos de recuperación, ya que permitirían generar tus códigos TOTP.</p>
+                <p>De esta forma, aunque alguien descubra o robe tu contraseña, todavía necesitará el segundo factor para acceder a tu cuenta.</p>
+
+                <h3>¿Cómo usar una llave de seguridad física?</h3>
+                <p>Una llave de seguridad física es un dispositivo que puedes utilizar como segundo factor de autenticación para proteger tus cuentas. Algunas se conectan mediante USB, mientras que otras también funcionan por NFC o Bluetooth. Las más recomendables son las que utilizan estándares como FIDO2 o WebAuthn, ya que ofrecen una protección sólida contra el robo de credenciales y los sitios web falsos.</p>
+                <p>Para comenzar, necesitas una llave compatible y una cuenta que admita llaves de seguridad. Entra en los ajustes de seguridad del servicio que quieras proteger y busca una opción como “Autenticación de dos factores”, “Llave de seguridad”, “Hardware Security key”, pero no “Passkey” ya que estas suelen ser llaves digitales ligadas a aplicaciones propietarias de Google o Microsoft. No todas las plataformas ofrecen esta función.</p>
+                <p>Selecciona la opción para añadir una nueva llave y sigue las instrucciones. Es posible que tengas que conectar la llave al dispositivo mediante USB, acercarla por NFC o pulsar el botón o sensor de la propia llave para confirmar que eres tú. Algunos modelos también pueden pedirte un PIN.</p>
+                <p>Después, asígnale un nombre que te permita identificarla, como “Llave principal” o “Llave del trabajo” o el nombre de la marca y modelo. Cuando termines, inicia sesión en la cuenta para comprobar que funciona correctamente. A partir de ese momento, además de tu contraseña, el servicio podrá pedirte que conectes o acerques la llave para confirmar el acceso.</p>
+                <p>Es recomendable registrar al menos dos llaves de seguridad en cada cuenta importante: una para llevar contigo y otra guardada en un lugar seguro como respaldo. Si solo registras una y la pierdes, podrías quedarte sin acceso a la cuenta.</p>
+                <p>También debes guardar los códigos de recuperación que ofrezca el servicio y mantener actualizados otros métodos de recuperación. Nunca compartas tu llave, su PIN ni los códigos de recuperación con otras personas. La llave no necesita estar conectada permanentemente: normalmente solo se utiliza al iniciar sesión o al realizar cambios importantes en la cuenta.</p>
+                <p>Una llave de seguridad añade una capa de protección muy fuerte porque, aunque alguien consiga tu contraseña, normalmente también necesitará tener físicamente la llave para acceder.</p>
+
+                <h3>Herramientas Recomendadas para la Privacidad y Seguridad</h3>
+
+                <p><strong>Gestores de Contraseñas</strong></p>
+                <ul style="padding-left: 25px;">
+                    <li><strong>Bitwarden:</strong> Gestor multiplataforma y de código abierto, con cifrado de conocimiento cero. Permite utilizar el servicio oficial alojado en sus servidores o instalar una instancia propia mediante soluciones compatibles.</li>
+                    <li><strong>Vaultwarden:</strong> Servidor alternativo, ligero y compatible con los clientes oficiales de Bitwarden. Está pensado para quienes desean alojar localmente su propio gestor de contraseñas.</li>
+                    <li><strong>KeePassXC:</strong> Gestor completamente offline. Guarda la base de datos localmente en un archivo cifrado dentro de tu computadora, sin necesidad de utilizar servidores externos.</li>
                 </ul>
 
-                <h3>Herramientas Recomendadas</h3>
-                <p><strong>Gestores de Contraseñas:</strong></p>
+                <p><strong>Autenticadores de Dos Factores (TOTP)</strong></p>
                 <ul style="padding-left: 25px;">
-                    <li><strong>Bitwarden / Vaultwarden:</strong> Multiplataforma, de código abierto, con cifrado Zero-Knowledge, hospedaje remoto y lautohospedaje local..</li>
-                    <li><strong>KeePassXC:</strong> Gestor 100% offline; guarda tu base de datos localmente en un archivo cifrado en tu computadora.</li>
-                </ul>
-                <p><strong>Autenticadores de Dos Factores (TOTP):</strong></p>
-                <ul style="padding-left: 25px;">
-                    <li><strong>Bitwarden Authenticator:</strong> Multiplataforma, de código abierto, con cifrado Zero-Knowledge, hospedaje remoto y lautohospedaje local.</li>
-                    <li><strong>Stratum Auth:</strong> Para Android, de código abierto, completamente de autohospedaje local.</li>
-                    <li><strong>979 2FA:</strong> Para Android, de código abierto, completamente de autohospedaje local. Disponible en Accrescent</li>
+                    <li><strong>Bitwarden Authenticator:</strong> Aplicación multiplataforma para generar códigos TOTP. Está integrada con el ecosistema de Bitwarden y permite sincronizar los códigos entre dispositivos.</li>
+                    <li><strong>Stratum Auth:</strong> Aplicación para Android, de código abierto, que guarda las claves TOTP localmente en el dispositivo, sin sincronización en la nube.</li>
+                    <li><strong>979 2FA:</strong> Aplicación de código abierto para Android, orientada al almacenamiento local de códigos TOTP. Está disponible en Accrescent.</li>
                 </ul>
 
-                <p><strong>Llaves de Seguridad de Hardware (FIDO2):</strong></p>
+                <p><strong>Llaves de Seguridad de Hardware (FIDO2)</strong></p>
                 <ul style="padding-left: 25px;">
-                    <li><strong>SoloKeys / Nitrokey:</strong> Alternativas de hardware y firmware 100% de código abierto.</li>
-                    <li><strong>Thetis keys:</strong> Alternativas para autenticación FIDO2 / WebAuthn con USB-A, USB-C y NFC.</li>
-                    <li><strong>YubiKey (Serie 5 / FIPS):</strong> Llaves físicas altamente resistentes compatibles con USB-A, USB-C y NFC.</li>
+                    <li><strong>SoloKeys y Nitrokey:</strong> Llaves de seguridad con un enfoque centrado en el código abierto. Son compatibles con distintos métodos de autenticación basados en FIDO2 y WebAuthn.</li>
+                    <li><strong>Thetis:</strong> Llaves de seguridad compatibles con FIDO2 y WebAuthn, disponibles con conexiones USB-A, USB-C y, según el modelo, NFC.</li>
+                    <li><strong>YubiKey - series 5 y FIPS:</strong> Llaves físicas resistentes y ampliamente compatibles con servicios que admiten FIDO2/WebAuthn. Existen modelos con USB-A, USB-C y NFC.</li>
+                </ul>
+
+                <p><strong>Recomendación rápida</strong></p>
+                <ul style="padding-left: 25px;">
+                    <li><strong>Para la mayoría de los usuarios:</strong> Bitwarden.</li>
+                    <li><strong>Para guardar las contraseñas únicamente de forma local:</strong> KeePassXC.</li>
+                    <li><strong>Para separar los códigos TOTP de las contraseñas:</strong> Stratum Auth o 979 2FA.</li>
+                    <li><strong>Para obtener la máxima protección contra el phishing:</strong> Una llave física FIDO2/WebAuthn.</li>
+                    <li><strong>Para tener una copia de seguridad física:</strong> Registra dos llaves de seguridad en tus cuentas más importantes.</li>
                 </ul>
 
                 <hr style="margin: 30px 0; border: 0; border-top: 1px solid var(--ctp-surface0);">
@@ -83,8 +119,8 @@
                     <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                         <a href="https://bitwarden.com/products/personal/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ BITWARDEN ]</a>
                         <a href="https://bitwarden.com/products/authenticator/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ BITWARDEN AUTHENTICATOR ]</a>
+                        <a href="https://ente.com/auth/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ ENTE AUTH ]</a>
                         <a href="https://keepassxc.org/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ KEEPASSXC ]</a>
-                        <a href="https://www.keepassdx.com/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ KEEPASSDX ]</a>
                         <a href="https://stratumauth.com/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ STRATUM AUTH ]</a>
                         <a href="https://codeberg.org/979/2fa" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ 979 2FA ]</a>
                         <a href="https://shop.nitrokey.com/shop/category/nitrokeys-7" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ NITROKEYS ]</a>
