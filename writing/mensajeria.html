@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajería Privada y Cifrado de Extremo a Extremo | Mateo</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=league-gothic:400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=share-tech-mono:400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=work-sans:400,600,800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="top-banner">
+        <div>// ARTICLE VIEW</div>
+        <div>STATUS: <span style="color: var(--ctp-green); font-weight:bold;">ENCRYPTED</span></div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <h1><a href="../writing.html">SECURITY &<br><span>PRIVACY</span></a></h1>
+        </div>
+        <nav>
+            <a href="../writing.html" style="color: var(--ctp-red); font-weight: 800;">[ ← Back to Texts ]</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <section style="margin-bottom: 30px;">
+              <div>
+                <h2>Mensajería Privada y Alternativas Seguras</h2>
+                <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">CATEGORÍA: CIBERSEGURIDAD / MENSAJERÍA</p>
+              </div>
+              <a href="files/mensajería.odt" download style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ ↓ RAW .ODT ]</a>
+            </section>
+
+            <article style="line-height: 1.8;">
+                <p>¿Sabías que al usar WhatsApp, Telegram o Instagram estás entregando los metadatos de tus conversaciones (con quién hablas, a qué hora, desde dónde y con qué frecuencia) a gigantes tecnológicos cuyo modelo de negocio es el rastreo y la monetización de tu vida digital? Si quieres recuperar el control total de tu privacidad, da el salto a alternativas seguras con cifrado como Signal, SimpleX Chat o Session.</p>
+
+                <h3>El problema de la mensajería tradicional</h3>
+                <p>Las plataformas de mensajería masivas tradicionales funcionan bajo esquemas donde la privacidad del usuario pasa a segundo plano en favor de la recolección de datos masiva:</p>
+                <ul style="padding-left: 25px;">
+                    <li><strong>Meta (WhatsApp e Instagram):</strong> Aunque WhatsApp utiliza cifrado de extremo a extremo (E2EE) para el contenido de los mensajes, Meta recolecta una cantidad masiva de metadatos (Rastogi and Hendler). Saben quién eres, con quién te comunicas, tu ubicación, tu red de contactos y tus hábitos de uso. Instagram, por su parte, ni siquiera ofrece E2EE hoy en día en sus chats directos (Dale).</li>
+                    <li><strong>Telegram:</strong> A diferencia de lo que se cree comúnmente, Telegram no cifra tus chats de E2EE por defecto. Las conversaciones habituales y los grupos se almacenan en los servidores de la empresa, donde ellos poseen las claves para leerlos y compartirlos con el gobierno ruso (de donde es la compañía). Solo los “chats secretos” individuales ofrecen cifrado punto a punto (Anin and Kondratyev).</li>
+                </ul>
+
+                <p>Confiar en estas plataformas expone tu red social y tus patrones de comunicación a filtraciones de datos, requerimientos judiciales masivos, censura y perfiles publicitarios invasivos.</p>
+                <h3>La alternativa segura y privacidad por diseño</h3>
+                <p>Adoptar aplicaciones de mensajería enfocadas en la privacidad significa cambiar este modelo extractivo por uno basado en cifrado fuerte, minimización de metadatos y código Libre, donde tú y tu interlocutor son los únicos dueños de la información transmitida.</p>
+
+                <p>Una aplicación de mensajería privada de código Libre auditable garantiza que el software haga exactamente lo que promete. En lugar de vincular tu vida real a un número telefónico o a una cuenta centralizada, estas tecnologías reducen o eliminan por completo la necesidad de identificadores personales.</p>
+
+                <h3>¿Qué aplicaciones usar?</h3>
+                <p>Existen diversas aplicaciones multiplataforma de mensajería, muchas que pretenden ser seguras y até algunas que cobran, pero pocas son confiables y aún menos han sido auditadas. Esta es nuestra lista de aplicaciones seguras.</p>
+                <ul style="padding-left: 25px;">
+                    <li><strong>Signal:</strong> Esta aplicación tiene E2EE para todo su contenido; texto, llamadas, archivos, se cifran en tu dispositivo antes de salir. Signal no guarda ningún registro de con quién hablas ni cuándo (Cohn-Gordon et al.). Su único punto de contacto semi-obligatorio es un número de teléfono durante el registro, que ahora es opcional con un pago de una sola vez de $2.99 USD con Signal Login (Signal).</li>
+                    <li><strong>Session:</strong> También con E2EE, no requiere número telefónico ni correo para registrarte. Utiliza una red descentralizada de nodos (similar a Tor) para enrutar tus mensajes, ocultando tu dirección IP y garantizando que ningún servidor central sepa quién habla con quién (Session).</li>
+                    <li><strong>SimpleX Chat:</strong> Otra app con E2EE que tiene el más alto nivel de privacidad. A diferencia de los demás, SimpleX no asigna nombres de usuario, números o identificadores fijos o IDs. Utiliza canales unidireccionales de transmisión donde los servidores solo ven colas de mensajes cifrados sin saber a quién perteneces (SimpleX Chat).</li>
+                </ul>
+
+                <h3>¿Por qué hacer el cambio?</h3>
+                <p>Inmunidad sobre metadatos: aunque alguien interceptase el tráfico de tu red o los servidores de la plataforma sufrieran un ataque, no existirían registros utilizables sobre tus contactos o patrones de uso; soberanía de tu identidad: puedes comunicarte sin exponer datos personales reales, como tu número de teléfono móvil; y código Libre y transparencia: el código de estas aplicaciones está disponible públicamente para que expertos independientes en ciberseguridad verifiquen continuamente que no existan puertas traseras.</p>
+
+                <h3>¿Cómo usar Signal?</h3>
+                <p>La recomendación más sencilla y directa para empezar a proteger tus comunicaciones cotidianas es instalar Signal.</p>
+                <ol style="padding-left: 25px;">
+                    <li>Descarga e instala Signal desde la tienda oficial de tu dispositivo (Android / iOS) o su página web oficial (<a href="https://signal.org/download/" target="_blank">https://signal.org/download/</a>).</li>
+                    <li>Crea tu cuenta utilizando tu número de teléfono o pagando Signal Login.</li>
+                    <li>Configura tu privacidad: Ve a Ajustes > Privacidad y activa el Nombre de usuario. Desactiva la opción de que otros puedan buscarte por tu número de teléfono para mantenerlo privado.</li>
+                    <li>Establece un PIN de Signal: Este PIN protege tu perfil y tus ajustes guardados en la plataforma.</li>
+                    <li>Opcional - Activa los mensajes que desaparecen: En tus chats importantes, activa la autoeliminación de mensajes tras un tiempo determinado (ej. 1 día o 1 semana) para reducir la huella digital en ambos dispositivos.</li>
+                </ol>
+
+                <h3>¿Cómo usar Session y SimpleX Chat?</h3>
+                <p>Si buscas anonimato absoluto o evitas vincular tu número de teléfono:</p>
+                <ul style="padding-left: 25px;">
+                    <li>Descarga Session (<a href="https://getsession.org" target="_blank">https://getsession.org</a>), crea una cuenta guardando detenidamente tu frase de recuperación de 12 palabras y comparte tu ID alfanumérico con tus contactos.</li>
+                    <li>Para comunicaciones de máxima seguridad sin identidades fijas, utiliza SimpleX Chat (<a href="https://simplex.chat/downloads/" target="_blank">https://simplex.chat/downloads/</a>) y conecta mediante códigos QR o enlaces temporales.</li>
+                </ul>
+
+                <h3>TL;DR</h3>
+                <p>Las apps de mensajería tradicionales pueden exponer metadatos sobre nuestros contactos y hábitos. Signal, Session y SimpleX Chat ofrecen más privacidad mediante cifrado, menor recopilación de datos y código abierto, aunque requieren buena configuración y hábitos responsables. Además, conviene verificar y matizar afirmaciones sobre Telegram y el registro de Signal antes de entregar el trabajo.</p>
+
+                <h3>Fuentes</h3>
+            <ol style="padding-left: 25px">
+                <li>
+                    Anin, Roman, and Nikita Kondratyev. “Telegram, the FSB, and the Man in the Middle.” <em>IStories</em>, 10 June
+                    2025.
+                    <a href="https://istories.media/en/stories/2025/06/10/telegram-fsb/" target="_blank" rel="noopener noreferrer">
+                        https://istories.media/en/stories/2025/06/10/telegram-fsb/ </a
+                    >. Accessed 25 Sept. 2026.
+                </li>
+                <li>
+                    “Announcing SimpleX Chat Prototype!” <em>SimpleX Chat</em>, 12 May 2021.
+                    <a
+                        href="https://simplex.chat/blog/20210512-simplex-chat-terminal-ui.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        https://simplex.chat/blog/20210512-simplex-chat-terminal-ui.html </a
+                    >. Accessed 25 Sept. 2026.
+                </li>
+                <li>
+                    Cohn-Gordon, Katriel, et al. “A Formal Security Analysis of the Signal Messaging Protocol: Extended Version.”
+                    <em>Cryptology ePrint Archive</em>, July 2019.
+                    <a href="https://eprint.iacr.org/2016/1013.pdf" target="_blank" rel="noopener noreferrer">
+                        https://eprint.iacr.org/2016/1013.pdf </a
+                    >. Accessed 25 Sept. 2026.
+                </li>
+                <li>
+                    Dale. “The Real Reason Meta Dropped Instagram Encryption.” <em>Cyber Safety Guy</em>, 13 Apr. 2026.
+                    <a
+                        href="https://www.cybersafetyguy.com/p/the-real-reason-meta-dropped-instagram"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        https://www.cybersafetyguy.com/p/the-real-reason-meta-dropped-instagram </a
+                    >. Accessed 25 Sept. 2026.
+                </li>
+                <li>
+                    Rastogi, Nidhi, and James A. Hendler. “WhatsApp Security and Role of Metadata in Preserving Privacy.”
+                    <em>arXiv</em>, 24 Jan. 2017.
+                    <a href="https://arxiv.org/abs/1701.06817" target="_blank" rel="noopener noreferrer">
+                        https://arxiv.org/abs/1701.06817 </a
+                    >. Accessed 25 Sept. 2026.
+                </li>
+                <li>
+                    Session. “Session Protocol V2: PFS, Post-Quantum and the Future of Private Messaging.” <em>Session</em>, 1 Dec.
+                    2025.
+                    <a href="https://getsession.org/session-protocol-v2" target="_blank" rel="noopener noreferrer">
+                        https://getsession.org/session-protocol-v2 </a
+                    >. Accessed 25 Sept. 2026.
+                </li>
+            </ol>
+
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid var(--ctp-surface0);">
+
+                <section style="margin-top: 30px;">
+                    <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">// LINKS  Y RECURSOS</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        <a href="https://signal.org/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ SIGNAL ]</a>
+                        <a href="https://getsession.org/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ SESSION ]</a>
+                        <a href="https://simplex.chat/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ SIMPLEX CHAT ]</a>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>2026 Mateo. Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    </footer>
+</body>
+</html>
