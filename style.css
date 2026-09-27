@@ -40,6 +40,47 @@
     --accent-mauve: var(--ctp-mauve);
 }
 
+:root:has(#theme-toggle:checked) {
+    --ctp-rosewater: #dc8a78;
+    --ctp-flamingo: #dd7878;
+    --ctp-pink: #ea76cb;
+    --ctp-mauve: #8839ef;
+    --ctp-red: #d20f39;
+    --ctp-maroon: #e64553;
+    --ctp-peach: #fe640b;
+    --ctp-yellow: #df8e1d;
+    --ctp-green: #40a02b;
+    --ctp-teal: #179299;
+    --ctp-sky: #04a5e5;
+    --ctp-sapphire: #209fb5;
+    --ctp-blue: #1e66f5;
+    --ctp-lavender: #7287fd;
+    --ctp-text: #4c4f69;
+    --ctp-subtext1: #5c5f77;
+    --ctp-subtext0: #6c6f85;
+    --ctp-overlay2: #7c7f93;
+    --ctp-overlay1: #8c8fa1;
+    --ctp-overlay0: #9ca0b0;
+    --ctp-surface2: #acb0be;
+    --ctp-surface1: #bcc0cc;
+    --ctp-surface0: #ccd0da;
+    --ctp-base: #eff1f5;
+    --ctp-mantle: #e6e9ef;
+    --ctp-crust: #dce0e8;
+
+    /* Theme Variable Assignments (Light Overrides) */
+    --bg-main: var(--ctp-base);
+    --bg-header: var(--ctp-mantle);
+    --bg-card: #ffffff;
+    --bg-secondary: var(--ctp-mantle);
+    --border-color: var(--ctp-surface1);
+    --text-primary: var(--ctp-text);
+    --text-secondary: var(--ctp-subtext0);
+    --accent-red: var(--ctp-red);
+    --accent-blue: var(--ctp-blue);
+    --accent-mauve: var(--ctp-mauve);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -49,6 +90,56 @@
 img, picture, video, canvas, svg {
     max-width: 100%;
     height: auto;
+}
+
+.theme-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+/* Styled Label Button */
+.theme-toggle-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--ctp-mantle);
+    background-color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    padding: 3px 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0px var(--ctp-crust);
+    transition: all 0.15s ease;
+}
+
+/* Hover & Active Effects */
+.theme-toggle-btn:hover {
+    background-color: var(--ctp-mauve);
+    border-color: var(--ctp-mauve);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--ctp-crust);
+}
+
+.theme-toggle-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--ctp-crust);
+}
+
+/* Default State (Dark Mode Active -> Click to switch to Light) */
+.theme-toggle-btn::after {
+    content: "LIGHT MODE";
+}
+
+/* Checked State (Light Mode Active -> Click to switch to Dark) */
+:root:has(#theme-toggle:checked) .theme-toggle-btn::after {
+    content: "DARK MODE";
 }
 
 /* Fix 1: Force body to take up at least full screen height and act as a flex column */
