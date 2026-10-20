@@ -77,51 +77,61 @@
     {
       "file": "writing/mensajeria.html", "lang": "en", "type": "article", "root": "../",
       "titleHtml": "SECURITY &<br><span>PRIVACY</span>",
+      "odt": "mensajeria.en.odt",
       "translation": "es/textos/mensajeria.html"
     },
     {
       "file": "writing/contrasenas.html", "lang": "en", "type": "article", "root": "../",
       "titleHtml": "SECURITY &<br><span>PRIVACY</span>",
+      "odt": "contrasenas.en.odt",
       "translation": "es/textos/contrasenas.html"
     },
     {
       "file": "writing/linux.html", "lang": "en", "type": "article", "root": "../",
       "titleHtml": "LINUX &<br><span>SOVEREIGNTY</span>",
+      "odt": "linux.en.odt",
       "translation": "es/textos/linux.html"
     },
     {
       "file": "writing/vpn.html", "lang": "en", "type": "article", "root": "../",
       "titleHtml": "VPN &<br><span>PRIVACY</span>",
+      "odt": "vpn.en.odt",
       "translation": "es/textos/vpn.html"
     },
     {
       "file": "writing/musica.html", "lang": "en", "type": "article", "root": "../",
       "titleHtml": "MUSIC &<br><span>SOVEREIGNTY</span>",
+      "odt": "musica.en.odt",
       "translation": "es/textos/musica.html"
     },
     {
       "file": "es/textos/mensajeria.html", "lang": "es", "type": "article", "root": "../../",
       "titleHtml": "SEGURIDAD &<br><span>PRIVACIDAD</span>",
+      "odt": "mensajeria.es.odt",
       "translation": "writing/mensajeria.html"
     },
     {
       "file": "es/textos/contrasenas.html", "lang": "es", "type": "article", "root": "../../",
       "titleHtml": "SEGURIDAD &<br><span>PRIVACIDAD</span>",
+      "odt": "contrasenas.es.odt",
       "translation": "writing/contrasenas.html"
     },
     {
       "file": "es/textos/linux.html", "lang": "es", "type": "article", "root": "../../",
       "titleHtml": "LINUX &<br><span>SOBERANÍA</span>",
+      "odt": "linux.es.odt",
       "translation": "writing/linux.html"
     },
     {
       "file": "es/textos/vpn.html", "lang": "es", "type": "article", "root": "../../",
       "titleHtml": "VPN &<br><span>PRIVACIDAD</span>",
+      "odt": "vpn.es.odt",
       "translation": "writing/vpn.html"
     },
     {
       "file": "es/textos/musica.html", "lang": "es", "type": "article", "root": "../../",
       "titleHtml": "MÚSICA &<br><span>SOBERANÍA</span>",
+      "odt": "musica.es.odt",
       "translation": "writing/musica.html"
     }
   ]

@@ -37,7 +37,13 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = ROOT / "_templates"
 PARTIALS = TEMPLATES / "partials"
 
-SECTIONS = ("banner", "header", "footer")
+SECTIONS = ("banner", "header", "odt", "footer")
+
+# Article .odt downloads live in this directory (relative to the site root).
+ODT_DIR = "files"
+
+# Per-language label for the download link.
+ODT_LABELS = {"en": "[ ↓ RAW .ODT ]", "es": "[ ↓ .ODT ORIGINAL ]"}
 
 # Codeberg Pages serves static files only and ignores `_headers`, so the
 # production site gets no HTTP CSP. A <meta http-equiv> CSP is the only way to
@@ -166,7 +172,23 @@ def build_page(page: dict, site: dict, nav: dict, banners: dict, footers: dict) 
     }
     footer_html = fill((PARTIALS / "footer.html").read_text(encoding="utf-8"), footer_vars)
 
-    return {"banner": banner_html, "header": header_html, "footer": footer_html}
+    # .odt download link (article pages only)
+    odt_html = ""
+    if page.get("odt"):
+        odt_vars = {
+            "odtHref": f"{root}{ODT_DIR}/{page['odt']}",
+            "odtLabel": ODT_LABELS[lang],
+        }
+        odt_html = fill(
+            (PARTIALS / "odt-download.html").read_text(encoding="utf-8"), odt_vars
+        )
+
+    return {
+        "banner": banner_html,
+        "header": header_html,
+        "odt": odt_html,
+        "footer": footer_html,
+    }
 
 
 def replace_region(text: str, section: str, body: str) -> str:
@@ -212,6 +234,9 @@ def main() -> int:
         rendered = ensure_csp_meta(original)
         blocks = build_page(page, site, nav, banners, footers)
         for section in SECTIONS:
+            # `odt` is optional: only article pages carry the marker region.
+            if section == "odt" and "<!--@odt-->" not in rendered:
+                continue
             rendered = replace_region(rendered, section, blocks[section])
         if rendered != original:
             changed.append(page["file"])
