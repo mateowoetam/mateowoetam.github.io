@@ -81,6 +81,98 @@
     --accent-mauve: var(--ctp-mauve);
 }
 
+/* System prefers light: unchecked = follow system (light), checked = force dark */
+@media (prefers-color-scheme: light) {
+    :root:not(:has(#theme-toggle:checked)) {
+        --ctp-rosewater: #dc8a78;
+        --ctp-flamingo: #dd7878;
+        --ctp-pink: #ea76cb;
+        --ctp-mauve: #8839ef;
+        --ctp-red: #d20f39;
+        --ctp-maroon: #e64553;
+        --ctp-peach: #fe640b;
+        --ctp-yellow: #df8e1d;
+        --ctp-green: #40a02b;
+        --ctp-teal: #179299;
+        --ctp-sky: #04a5e5;
+        --ctp-sapphire: #209fb5;
+        --ctp-blue: #1e66f5;
+        --ctp-lavender: #7287fd;
+        --ctp-text: #4c4f69;
+        --ctp-subtext1: #5c5f77;
+        --ctp-subtext0: #6c6f85;
+        --ctp-overlay2: #7c7f93;
+        --ctp-overlay1: #8c8fa1;
+        --ctp-overlay0: #9ca0b0;
+        --ctp-surface2: #acb0be;
+        --ctp-surface1: #bcc0cc;
+        --ctp-surface0: #ccd0da;
+        --ctp-base: #eff1f5;
+        --ctp-mantle: #e6e9ef;
+        --ctp-crust: #dce0e8;
+
+        --bg-main: var(--ctp-base);
+        --bg-header: var(--ctp-mantle);
+        --bg-card: #ffffff;
+        --bg-secondary: var(--ctp-mantle);
+        --border-color: var(--ctp-surface1);
+        --text-primary: var(--ctp-text);
+        --text-secondary: var(--ctp-subtext0);
+        --accent-red: var(--ctp-red);
+        --accent-blue: var(--ctp-blue);
+        --accent-mauve: var(--ctp-mauve);
+    }
+
+    /* Checked = force dark, overriding the light system default */
+    :root:has(#theme-toggle:checked) {
+        --ctp-rosewater: #f5e0dc;
+        --ctp-flamingo: #f2cdcd;
+        --ctp-pink: #f5c2e7;
+        --ctp-mauve: #cba6f7;
+        --ctp-red: #f38ba8;
+        --ctp-maroon: #eba0ac;
+        --ctp-peach: #fab387;
+        --ctp-yellow: #f9e2af;
+        --ctp-green: #a6e3a1;
+        --ctp-teal: #94e2d5;
+        --ctp-sky: #89dceb;
+        --ctp-sapphire: #74c7ec;
+        --ctp-blue: #89b4fa;
+        --ctp-lavender: #b4befe;
+        --ctp-text: #cdd6f4;
+        --ctp-subtext1: #bac2de;
+        --ctp-subtext0: #a6adc8;
+        --ctp-overlay2: #9399b2;
+        --ctp-overlay1: #7f849c;
+        --ctp-overlay0: #6c7086;
+        --ctp-surface2: #585b70;
+        --ctp-surface1: #45475a;
+        --ctp-surface0: #313244;
+        --ctp-base: #1e1e2e;
+        --ctp-mantle: #181825;
+        --ctp-crust: #11111b;
+
+        --bg-main: var(--ctp-base);
+        --bg-header: var(--ctp-mantle);
+        --bg-card: var(--ctp-surface0);
+        --bg-secondary: var(--ctp-surface1);
+        --border-color: var(--ctp-surface2);
+        --text-primary: var(--ctp-text);
+        --text-secondary: var(--ctp-subtext0);
+        --accent-red: var(--ctp-red);
+        --accent-blue: var(--ctp-blue);
+        --accent-mauve: var(--ctp-mauve);
+    }
+
+    :root:not(:has(#theme-toggle:checked)) .theme-toggle-btn::after {
+        content: "DARK MODE";
+    }
+
+    :root:has(#theme-toggle:checked) .theme-toggle-btn::after {
+        content: "LIGHT MODE";
+    }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -176,6 +268,91 @@ body {
     text-decoration: underline;
 }
 
+.banner-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* --- Language switcher (zero-JS <details> dropdown) --- */
+.lang-switch {
+    position: relative;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.lang-switch > summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--ctp-subtext1);
+    border: 1px solid var(--border-color);
+    padding: 3px 10px;
+    user-select: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 0px var(--ctp-crust);
+    transition: all 0.15s ease;
+}
+
+.lang-globe {
+    width: 14px;
+    height: 14px;
+    display: block;
+    flex: none;
+}
+
+.lang-code {
+    line-height: 1;
+}
+
+.lang-switch > summary::-webkit-details-marker {
+    display: none;
+}
+
+.lang-switch > summary::marker {
+    content: "";
+}
+
+.lang-switch[open] > summary,
+.lang-switch > summary:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-red);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--ctp-crust);
+}
+
+.lang-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 4px);
+    z-index: 10;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 4px 4px 0px var(--ctp-crust);
+    min-width: 9rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.lang-menu a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 8px 12px;
+    text-transform: none;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.lang-menu a:hover,
+.lang-menu a[aria-current="page"] {
+    background-color: var(--accent-red);
+    color: var(--ctp-crust);
+    text-decoration: none;
+}
+
 header {
     max-width: 1100px;
     width: 100%;
@@ -241,6 +418,11 @@ nav a {
     grid-template-columns: 2fr 1fr;
     gap: 40px;
     flex: 1; /* Fix 1: Forces container to expand and push the footer to the bottom */
+}
+
+/* Single-column when only <main> is present (article pages, writing index) */
+.container > main:only-child {
+    grid-column: 1 / -1;
 }
 
 @media (max-width: 768px) {
@@ -553,4 +735,21 @@ footer p {
 footer a {
     color: var(--text-primary);
     text-decoration: underline;
+}
+
+/* --- Progressive enhancement: copy button (unhidden by site.js) --- */
+.copy-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 1px 6px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background: var(--accent-red);
+    color: var(--ctp-crust);
 }
