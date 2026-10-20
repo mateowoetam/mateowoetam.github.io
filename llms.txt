@@ -1,0 +1,39 @@
+# Mateo (@mateowoetam)
+
+> Developer, privacy advocate, and FOSS enthusiast. Offers privacy/FOSS consulting services (prices in MXN, remote and on-site in Mexico) and publishes digital sovereignty guides in English and Spanish.
+
+This is a static HTML site with no trackers, no cookies, and no third-party requests. Content is licensed CC BY-SA 4.0. A machine-readable site index is available at [/data/site.json](/data/site.json).
+
+Languages: English (default, `/`) and Spanish (`/es/`). Every page has a language switcher; articles are paired via `hreflang`.
+
+## Pages (English)
+
+- [Home](/): About Mateo and featured Codeberg repositories
+- [Services](/services.html): Consulting catalog — PC de-bloat, Linux installs, hardened desktop/mobile OS, identity hardening, home servers, smart homes, local AI compute
+- [Writing](/writing.html): Index of privacy and digital-sovereignty guides
+- [Contact](/contact.html): Email, GPG fingerprint, social profiles
+- [JavaScript license information](/javascript.html): LibreJS web labels for every script served by the site (all CC BY-SA 4.0)
+
+## Páginas (Español)
+
+- [Inicio](/es/index.html): Sobre Mateo y repositorios destacados en Codeberg
+- [Servicios](/es/servicios.html): Catálogo de servicios de consultoría
+- [Textos](/es/textos.html): Índice de guías de privacidad y soberanía digital
+- [Contacto](/es/contacto.html): Correo, huella GPG, redes sociales
+- [Información de licencia de JavaScript](/es/javascript.html): Etiquetas LibreJS para cada script del sitio (todos CC BY-SA 4.0)
+
+## Articles (English / Español)
+
+- Private Messaging / Mensajería Privada: [/writing/mensajeria.html](/writing/mensajeria.html) · [/es/textos/mensajeria.html](/es/textos/mensajeria.html)
+- Password Managers and 2FA / Gestores de Contraseñas y 2FA: [/writing/contrasenas.html](/writing/contrasenas.html) · [/es/textos/contrasenas.html](/es/textos/contrasenas.html)
+- Linux and Digital Sovereignty / Linux y Soberanía Digital: [/writing/linux.html](/writing/linux.html) · [/es/textos/linux.html](/es/textos/linux.html)
+- VPNs and Privacy / VPN y Privacidad: [/writing/vpn.html](/writing/vpn.html) · [/es/textos/vpn.html](/es/textos/vpn.html)
+- Owning Digital Music / Propiedad de la Música Digital: [/writing/musica.html](/writing/musica.html) · [/es/textos/musica.html](/es/textos/musica.html)
+
+## Contact
+
+- Email: mateo@orlaineta.net
+- GPG fingerprint: AC91A0AD921E4DE592180965441E486FD756EB4C
+- Codeberg: https://codeberg.org/mateowoetam
+- Mastodon: https://techhub.social/@mateowoetam
+- Bluesky: https://bsky.app/profile/mateowoetam.bsky.social

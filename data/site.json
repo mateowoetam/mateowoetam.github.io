@@ -1,0 +1,64 @@
+{
+  "name": "Mateo (@mateowoetam)",
+  "url": "https://mateowoetam.codeberg.page/",
+  "description": "Developer, privacy advocate, and FOSS enthusiast. Privacy/FOSS consulting services and digital sovereignty guides in English and Spanish.",
+  "license": "CC BY-SA 4.0",
+  "defaultLanguage": "en",
+  "languages": ["en", "es"],
+  "pages": [
+    { "path": "/", "lang": "en", "title": "Home", "translation": "/es/index.html" },
+    { "path": "/services.html", "lang": "en", "title": "Services", "translation": "/es/servicios.html" },
+    { "path": "/writing.html", "lang": "en", "title": "Writing", "translation": "/es/textos.html" },
+    { "path": "/contact.html", "lang": "en", "title": "Contact", "translation": "/es/contacto.html" },
+    { "path": "/es/index.html", "lang": "es", "title": "Inicio" },
+    { "path": "/es/servicios.html", "lang": "es", "title": "Servicios" },
+    { "path": "/es/textos.html", "lang": "es", "title": "Textos" },
+    { "path": "/es/contacto.html", "lang": "es", "title": "Contacto" }
+  ],
+  "services": [
+    { "name": "PC Optimization & De-Bloat", "price": "$2,999 MXN" },
+    { "name": "Targeted Architecture Consultations & Linux Setup", "price": "$1,499 MXN EACH" },
+    { "name": "Physical Hardware Engineering & Repairs", "price": "RATE + HARDWARE COST" },
+    { "name": "Hardened Desktop OS Installation", "price": "$2,999 MXN + $500 MXN/h" },
+    { "name": "Hardened Mobile OS Deployment", "price": "$1,499 MXN + $500 MXN/h" },
+    { "name": "Digital Identity & Online Security Hardening", "price": "$1,499 MXN + $500 MXN/h" },
+    { "name": "The Digital Sovereignty Infrastructure", "price": "$2,999 MXN + $500 MXN/h" },
+    { "name": "Private Smart Homes & Isolated IoT Networking", "price": "$2,999 MXN + $500 MXN/h" },
+    { "name": "High-Performance Clusters & Local Compute Nodes", "price": "$2,999 MXN + $500 MXN/h" }
+  ],
+  "articles": [
+    {
+      "slug": "mensajeria",
+      "title": { "en": "Private Messaging", "es": "Mensajería Privada" },
+      "url": { "en": "/writing/mensajeria.html", "es": "/es/textos/mensajeria.html" }
+    },
+    {
+      "slug": "contrasenas",
+      "title": { "en": "Password Managers and 2FA", "es": "Gestores de Contraseñas y 2FA" },
+      "url": { "en": "/writing/contrasenas.html", "es": "/es/textos/contrasenas.html" }
+    },
+    {
+      "slug": "linux",
+      "title": { "en": "Linux and Digital Sovereignty", "es": "Linux y Soberanía Digital" },
+      "url": { "en": "/writing/linux.html", "es": "/es/textos/linux.html" }
+    },
+    {
+      "slug": "vpn",
+      "title": { "en": "VPNs and Privacy", "es": "VPN y Privacidad" },
+      "url": { "en": "/writing/vpn.html", "es": "/es/textos/vpn.html" }
+    },
+    {
+      "slug": "musica",
+      "title": { "en": "Owning Digital Music", "es": "Propiedad de la Música Digital" },
+      "url": { "en": "/writing/musica.html", "es": "/es/textos/musica.html" }
+    }
+  ],
+  "contact": {
+    "email": "mateo@orlaineta.net",
+    "gpgFingerprint": "AC91A0AD921E4DE592180965441E486FD756EB4C",
+    "gpgKeyUrl": "https://keys.openpgp.org/vks/v1/by-fingerprint/AC91A0AD921E4DE592180965441E486FD756EB4C",
+    "codeberg": "https://codeberg.org/mateowoetam",
+    "mastodon": "https://techhub.social/@mateowoetam",
+    "bluesky": "https://bsky.app/profile/mateowoetam.bsky.social"
+  }
+}
