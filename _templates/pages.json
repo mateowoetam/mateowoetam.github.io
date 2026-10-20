@@ -1,0 +1,128 @@
+{
+  "_comment": "Registry of every generated page. tools/build.py reads this and fills the @banner/@header/@footer marker regions in each file from _templates/partials/. Edit partials once; run tools/build.py to update all pages. 'banner' is the text shown in the top banner; omit it on article pages to use banners[lang].article.",
+  "site": {
+    "base": "https://mateowoetam.codeberg.page",
+    "languages": ["en", "es"],
+    "defaultLanguage": "en"
+  },
+  "banners": {
+    "en": { "article": "// ARTICLE VIEW" },
+    "es": { "article": "// VISTA DE ARTÍCULO" }
+  },
+  "footers": {
+    "en": "2026 Mateo. Content licensed under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>.",
+    "es": "2026 Mateo. Contenido bajo licencia <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>."
+  },
+  "pages": [
+    {
+      "file": "index.html", "lang": "en", "type": "chrome", "root": "./",
+      "logoHtml": "MATEO<span>WOETAM</span>", "active": "home",
+      "banner": "// DEVELOPMENT MOVED TO CODEBERG.ORG",
+      "translation": "es/index.html"
+    },
+    {
+      "file": "services.html", "lang": "en", "type": "chrome", "root": "./",
+      "logoHtml": "<span>SERVICES</span>", "active": "services",
+      "banner": "// LOCAL &amp; REMOTE TECHNICAL SERVICES",
+      "translation": "es/servicios.html"
+    },
+    {
+      "file": "writing.html", "lang": "en", "type": "chrome", "root": "./",
+      "logoHtml": "ARTICLES<span> & GUIDES</span>", "active": "texts",
+      "banner": "// PUBLIC EDUCATION & GUIDES",
+      "translation": "es/textos.html"
+    },
+    {
+      "file": "contact.html", "lang": "en", "type": "chrome", "root": "./",
+      "logoHtml": "<span>CONTACT</span>", "active": "contact",
+      "banner": "// SECURE CHANNELS ONLY",
+      "translation": "es/contacto.html"
+    },
+    {
+      "file": "javascript.html", "lang": "en", "type": "chrome", "root": "./",
+      "logoHtml": "<span>LICENSES</span>", "active": "",
+      "banner": "// JAVASCRIPT LICENSE INFORMATION",
+      "translation": "es/javascript.html"
+    },
+    {
+      "file": "es/index.html", "lang": "es", "type": "chrome", "root": "../",
+      "logoHtml": "MATEO<span>WOETAM</span>", "active": "home",
+      "banner": "// DESARROLLO MOVIDO A CODEBERG.ORG",
+      "translation": "index.html"
+    },
+    {
+      "file": "es/servicios.html", "lang": "es", "type": "chrome", "root": "../",
+      "logoHtml": "<span>SERVICIOS</span>", "active": "services",
+      "banner": "// SERVICIOS TÉCNICOS LOCALES Y REMOTOS",
+      "translation": "services.html"
+    },
+    {
+      "file": "es/textos.html", "lang": "es", "type": "chrome", "root": "../",
+      "logoHtml": "ARTÍCULOS<span> &amp; GUÍAS</span>", "active": "texts",
+      "banner": "// EDUCACIÓN PÚBLICA &amp; GUÍAS",
+      "translation": "writing.html"
+    },
+    {
+      "file": "es/contacto.html", "lang": "es", "type": "chrome", "root": "../",
+      "logoHtml": "<span>CONTACTO</span>", "active": "contact",
+      "banner": "// SOLO CANALES SEGUROS",
+      "translation": "contact.html"
+    },
+    {
+      "file": "es/javascript.html", "lang": "es", "type": "chrome", "root": "../",
+      "logoHtml": "<span>LICENCIAS</span>", "active": "",
+      "banner": "// INFORMACIÓN DE LICENCIA DE JAVASCRIPT",
+      "translation": "javascript.html"
+    },
+    {
+      "file": "writing/mensajeria.html", "lang": "en", "type": "article", "root": "../",
+      "titleHtml": "SECURITY &<br><span>PRIVACY</span>",
+      "translation": "es/textos/mensajeria.html"
+    },
+    {
+      "file": "writing/contrasenas.html", "lang": "en", "type": "article", "root": "../",
+      "titleHtml": "SECURITY &<br><span>PRIVACY</span>",
+      "translation": "es/textos/contrasenas.html"
+    },
+    {
+      "file": "writing/linux.html", "lang": "en", "type": "article", "root": "../",
+      "titleHtml": "LINUX &<br><span>SOVEREIGNTY</span>",
+      "translation": "es/textos/linux.html"
+    },
+    {
+      "file": "writing/vpn.html", "lang": "en", "type": "article", "root": "../",
+      "titleHtml": "VPN &<br><span>PRIVACY</span>",
+      "translation": "es/textos/vpn.html"
+    },
+    {
+      "file": "writing/musica.html", "lang": "en", "type": "article", "root": "../",
+      "titleHtml": "MUSIC &<br><span>SOVEREIGNTY</span>",
+      "translation": "es/textos/musica.html"
+    },
+    {
+      "file": "es/textos/mensajeria.html", "lang": "es", "type": "article", "root": "../../",
+      "titleHtml": "SEGURIDAD &<br><span>PRIVACIDAD</span>",
+      "translation": "writing/mensajeria.html"
+    },
+    {
+      "file": "es/textos/contrasenas.html", "lang": "es", "type": "article", "root": "../../",
+      "titleHtml": "SEGURIDAD &<br><span>PRIVACIDAD</span>",
+      "translation": "writing/contrasenas.html"
+    },
+    {
+      "file": "es/textos/linux.html", "lang": "es", "type": "article", "root": "../../",
+      "titleHtml": "LINUX &<br><span>SOBERANÍA</span>",
+      "translation": "writing/linux.html"
+    },
+    {
+      "file": "es/textos/vpn.html", "lang": "es", "type": "article", "root": "../../",
+      "titleHtml": "VPN &<br><span>PRIVACIDAD</span>",
+      "translation": "writing/vpn.html"
+    },
+    {
+      "file": "es/textos/musica.html", "lang": "es", "type": "article", "root": "../../",
+      "titleHtml": "MÚSICA &<br><span>SOBERANÍA</span>",
+      "translation": "writing/musica.html"
+    }
+  ]
+}

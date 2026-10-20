@@ -1,0 +1,14 @@
+{
+  "en": {
+    "labels": { "texts": "Texts", "services": "Services", "contact": "Contact", "home": "Home" },
+    "hrefs":  { "texts": "writing.html", "services": "services.html", "contact": "contact.html", "home": "index.html" },
+    "order": ["texts", "services", "contact", "home"],
+    "articleBack": { "href": "../writing.html", "label": "[ ← Back to Texts ]" }
+  },
+  "es": {
+    "labels": { "texts": "Textos", "services": "Servicios", "contact": "Contacto", "home": "Inicio" },
+    "hrefs":  { "texts": "textos.html", "services": "servicios.html", "contact": "contacto.html", "home": "index.html" },
+    "order": ["texts", "services", "contact", "home"],
+    "articleBack": { "href": "../textos.html", "label": "[ ← Volver a Textos ]" }
+  }
+}
