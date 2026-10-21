@@ -1,36 +1,55 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0-or-later
-/* WebMCP tools for mateowoetam.codeberg.page
- *
- * Self-hosted, dependency-free progressive enhancement. No-op in browsers
- * without the WebMCP API (feature-detected). All tools are read-only except
- * site navigation and the local theme toggle; nothing submits data anywhere.
- *
- * Written in a defensive (Hardened JavaScript-inspired) style without the
- * SES shim: strict mode, closed-over state, records frozen before being
- * shared, builtins captured at load time, and runtime whitelist validation
- * of every input crossing the trust boundary (a tool schema's `enum` is a
- * hint to the host, never enforcement).
- * https://hardenedjs.org/
- *
- * The site is available in English (/) and Spanish (/es/). Tools take a
- * `lang` argument; adding a language means extending LANGS and the page/slug
- * tables below.
- *
- * Copyright (C) 2026 Mateo (@mateowoetam)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
- */
+/*
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+WebMCP tools for mateowoetam.codeberg.page
+
+Self-hosted, dependency-free progressive enhancement. No-op in browsers
+without the WebMCP API (feature-detected). All tools are read-only except
+
+Written in a defensive (Hardened JavaScript-inspired) style without the
+SES shim: strict mode, closed-over state, records frozen before being
+shared, builtins captured at load time, and runtime whitelist validation
+of every input crossing the trust boundary (a tool schema's `enum` is a
+hint to the host, never enforcement).
+https://hardenedjs.org/
+
+The site is available in English (/) and Spanish (/es/). Tools take a
+`lang` argument; adding a language means extending LANGS and the page/slug
+tables below.
+
+Copyright (C) 2026 Mateo (@mateowoetam)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE/aHB1Mmfl4E6u2IvBU5mQdG/KXUFAmrY33YACgkQBU5mQdG/
+KXWn8Q//QFuuMxknfaz6pRi0OPIPeDUwTfKmRv/vOMZYN3I2CWYNkHvA/C7/kttt
+2NZFWteVKhueTUKw9xd5YLcwwcsJHHgN1CH6xBKuQRGrNSkjNH28t1dWmE1qThyi
+3hZaYzZpVx8FBRe7vWdp8wvouQIBUmmDcIZlhZxbodv70EYQL4hNkQN/xIGYprxB
+AVP6/35wC9qwVkos4byRqbOTMlzn/2EYBcuQAEPWJ9zCqJK6wV5zhfmXF920vrRS
+BGGY7zVYux73vRXpRPS/tAoPnhNC/TTC0M7vxr81YVG61hgtZeg5kthgtrv7U5ue
+dEFPshdi9uUXUJ6VsCytl6BBtpfYetz6bRNHW/ErFOqe5bZAvUJUuaTuS3y6PiYl
+BT2xtv7ba8Zn4AY/xz4h3LiIsLFHmLIIolwvMK5PAxS0HHwcIhHD0bkTWsSa4Rik
+BUpihQL8Kt3TMbSsM2bJNqfu8ACIHJ6qcVNsGF3x76YwmcuhjpgJdET/UIiiIs0c
+WqhY3j0/bbptJdSAUcG8b81Y3i/+cU84aRB1m+7SvYAhzS+SYn0ggIX7qr6z9Vmi
+LVkqYpDHQQOQ67mAw+ORVHKvlY8fEY/KpkUEflZB+oyKVnld3VQD53Vc5ef03ZlN
+T4fHwA+AyVR5+2ziSEU+m42+p27PzYjA7nNc6Abw3Tsvyl6Hec4=
+=omMj
+-----END PGP SIGNATURE-----
+*/
 (function () {
   'use strict';
 
