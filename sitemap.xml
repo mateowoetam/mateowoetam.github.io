@@ -5,61 +5,71 @@
     <loc>https://mateowoetam.codeberg.page/</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/index.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/services.html</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/services.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/servicios.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/servoj.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/services.html"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/contact.html</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/contact.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/kontakto.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/contact.html"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/javascript.html</loc><lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/javascript.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/javascript.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/javascript.html"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/writing.html</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing.html"/>
   </url>
   <url>
-    <loc>https://mateowoetam.codeberg.page/writing/mensajeria.html</loc><lastmod>2026-10-19</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/mensajeria.html"/>
+    <loc>https://mateowoetam.codeberg.page/writing/messaging.html</loc><lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/messaging.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos/mensajeria.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/mensajeria.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado/mesagado.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/messaging.html"/>
   </url>
   <url>
-    <loc>https://mateowoetam.codeberg.page/writing/contrasenas.html</loc><lastmod>2026-10-19</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/contrasenas.html"/>
+    <loc>https://mateowoetam.codeberg.page/writing/passwords.html</loc><lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/passwords.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos/contrasenas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/contrasenas.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado/pasvortoj.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/passwords.html"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/writing/linux.html</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/linux.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos/linux.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado/linux.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/linux.html"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/writing/vpn.html</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/vpn.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos/vpn.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado/vpn.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/vpn.html"/>
   </url>
   <url>
-    <loc>https://mateowoetam.codeberg.page/writing/musica.html</loc><lastmod>2026-10-19</lastmod>
+    <loc>https://mateowoetam.codeberg.page/writing/music.html</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/musica.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos/musica.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado/muziko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/music.html"/>
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/es/index.html</loc><lastmod>2026-10-19</lastmod>
@@ -75,5 +85,20 @@
   </url>
   <url>
     <loc>https://mateowoetam.codeberg.page/es/javascript.html</loc><lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://mateowoetam.codeberg.page/eo/index.html</loc><lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://mateowoetam.codeberg.page/eo/servoj.html</loc><lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://mateowoetam.codeberg.page/eo/kontakto.html</loc><lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://mateowoetam.codeberg.page/eo/skribado.html</loc><lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://mateowoetam.codeberg.page/eo/javascript.html</loc><lastmod>2026-10-20</lastmod>
   </url>
 </urlset>

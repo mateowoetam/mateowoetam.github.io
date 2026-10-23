@@ -81,27 +81,42 @@ T4fHwA+AyVR5+2ziSEU+m42+p27PzYjA7nNc6Abw3Tsvyl6Hec4=
       services: '/es/servicios.html',
       home: '/es/index.html'
     })
+    es: freeze({
+      pagePrefix: '/eo/',
+      articlePrefix: '/eo/skribado/',
+      writingIndex: '/eo/skribado.html',
+      contact: '/eo/kontakto.html',
+      services: '/eo/servoj.html',
+      home: '/eo/index.html'
+    })
   });
 
-  var LANG_CODES = freeze(['en', 'es']);
+  var LANG_CODES = freeze(['en', 'es', 'eo']);
 
   /* Article slugs are stable across languages (only the directory differs). */
-  var ARTICLE_SLUGS = freeze(['mensajeria', 'contrasenas', 'linux', 'vpn', 'musica']);
+  var ARTICLE_SLUGS = freeze(['messaging', 'passwords', 'linux', 'vpn', 'music']);
 
   var ARTICLE_TITLES = freeze({
     en: freeze({
-      mensajeria: 'Private Messaging and Secure Alternatives',
-      contrasenas: 'Password Managers and 2FA Authentication',
+      messaging: 'Private Messaging and Secure Alternatives',
+      passwords: 'Password Managers and 2FA Authentication',
       linux: 'Digital Sovereignty and Linux on the Desktop',
       vpn: 'VPN: What is a VPN and how does it work?',
-      musica: 'Owning Digital Music'
+      music: 'Owning Digital Music'
     }),
     es: freeze({
-      mensajeria: 'Mensajería Privada y Alternativas Seguras',
-      contrasenas: 'Gestores de Contraseñas y Autenticación 2FA',
+      messaging: 'Mensajería Privada y Alternativas Seguras',
+      passwords: 'Gestores de Contraseñas y Autenticación 2FA',
       linux: 'Soberanía Digital y Linux en el Escritorio',
       vpn: 'VPN: ¿Qué es una VPN y cómo funciona?',
-      musica: 'Propiedad de la Música Digital'
+      music: 'Propiedad de la Música Digital'
+    })
+    eo: freeze({
+      messaging: 'Privata Mesaĝado kaj Sekuraj Alternativoj',
+      passwords: 'Pasvortaj Administrantoj kaj 2FA-Aŭtentikigo',
+      linux: 'Cifereca Suvereneco kaj Linukso sur la Labortablo',
+      vpn: 'VPN: Kio estas VPN kaj kiel ĝi funkcias?',
+      music: 'Cifereca Muzika Posedo'
     })
   });
 
@@ -117,6 +132,12 @@ T4fHwA+AyVR5+2ziSEU+m42+p27PzYjA7nNc6Abw3Tsvyl6Hec4=
       freeze({ path: '/es/servicios.html', summary: 'Servicios de consultoría en privacidad y software libre con precios en MXN.' }),
       freeze({ path: '/es/textos.html', summary: 'Índice de guías de privacidad y soberanía digital.' }),
       freeze({ path: '/es/contacto.html', summary: 'Correo, huella GPG y perfiles sociales.' })
+    ])
+    eo: freeze([
+      freeze({ path: '/eo/index.html', summary: 'Pri Mateo; Elstaraj deponejoj sur Codeberg.' }),
+      freeze({ path: '/eo/servoj.html', summary: 'Privateco kaj libera programaro konsultservoj kun prezoj en MXN.' }),
+      freeze({ path: '/eo/skribado.html', summary: 'Gvidiloj pri privateco kaj ciferecaj suvereneco.' }),
+      freeze({ path: '/eo/kontakto.html', summary: 'Poŝto, GPG-piedsigno kaj sociaj profiloj.' })
     ])
   });
 
@@ -198,7 +219,7 @@ T4fHwA+AyVR5+2ziSEU+m42+p27PzYjA7nNc6Abw3Tsvyl6Hec4=
   document.modelContext.registerTool(freeze({
     name: 'get_article',
     title: 'Read an article',
-    description: 'Fetch one of the guides (available in English and Spanish) and return its full text.',
+    description: 'Fetch one of the guides (available in English, Spanish, and Esperanto) and return its full text.',
     inputSchema: freeze({
       type: 'object',
       properties: freeze({
