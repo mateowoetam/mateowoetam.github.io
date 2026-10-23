@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eo">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guía sobre VPN y privacidad: protección en redes de riesgo, seguimiento del ISP y proveedores sin KYC.">
-    <link rel="canonical" href="https://mateowoetam.codeberg.page/es/textos/vpn.html">
+    <meta name="description" content="Gvidanlibro pri VPN kaj privateco: protekto en riskaj retoj, spuri de la ISP kaj provizistoj sen KYC.">
+    <link rel="canonical" href="https://mateowoetam.codeberg.page/eo/skribado/vpn.html">
     <link rel="alternate" hreflang="en" href="https://mateowoetam.codeberg.page/writing/vpn.html">
     <link rel="alternate" hreflang="es" href="https://mateowoetam.codeberg.page/es/textos/vpn.html">
     <link rel="alternate" hreflang="eo" href="https://mateowoetam.codeberg.page/eo/skribado/vpn.html">
     <link rel="alternate" hreflang="x-default" href="https://mateowoetam.codeberg.page/writing/vpn.html">
-    <title>Redes Privadas Virtuales (VPN) y Privacidad | Mateo</title>
+    <title>Virtualaj Privataj Retoj (VPN) kaj Privateco | Mateo</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../../favicon.ico" sizes="32x32" type="image/x-icon">
     <link rel="stylesheet" href="../../fonts/fonts.css">
@@ -19,14 +19,14 @@
 <body>
 <!--@banner-->
 <div class="top-banner">
-         <div>// VISTA DE ARTÍCULO</div>
+         <div>// ARTIKOLA VIDO</div>
          <div class="banner-controls">
              <details class="lang-switch">
-                 <summary><svg class="lang-globe" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 8 496 496" aria-hidden="true" focusable="false"><path fill="currentColor" d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248s248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28c-2.99 3-5.1 6.7-6.17 10.71c-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25c-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97c-14.37-7.95-34.81-19.06-48.81-26.11c-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14c20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57a46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"/></svg><span class="lang-code">ES</span></summary>
+                 <summary><svg class="lang-globe" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 8 496 496" aria-hidden="true" focusable="false"><path fill="currentColor" d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248s248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28c-2.99 3-5.1 6.7-6.17 10.71c-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25c-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97c-14.37-7.95-34.81-19.06-48.81-26.11c-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14c20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57a46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"/></svg><span class="lang-code">EO</span></summary>
                  <div class="lang-menu">
                      <a href="../../writing/vpn.html" hreflang="en" lang="en">English</a>
                      <a href="../../../es/textos/vpn.html" hreflang="es" lang="es">Español</a>
-                     <a href="./vpn.html" hreflang="eo" lang="eo"  aria-current="page">Esperanto</a>
+                     <a href="./vpn.html" hreflang="eo" lang="eo" aria-current="page">Esperanto</a>
                  </div>
              </details>
              <input type="checkbox" id="theme-toggle" class="theme-checkbox">
@@ -36,10 +36,10 @@
 <!--/@banner--><!--@header-->
 <header>
         <div class="logo-area">
-            <h1><a href="../skribado.html">VPN &<br><span>PRIVACIDAD</span></a></h1>
+            <h1><a href="../skribado.html">VPN &<br><span>PRIVATECO</span></a></h1>
         </div>
         <nav>
-            <a href="../skribado.html" style="color: var(--ctp-red); font-weight: 800;">[ ← Volver a Textos ]</a>
+            <a href="../skribado.html" style="color: var(--ctp-red); font-weight: 800;">[ ← Reiri al Skriboj ]</a>
         </nav>
     </header>
 <!--/@header-->
@@ -48,38 +48,39 @@
         <main>
             <section style="margin-bottom: 30px;">
               <div>
-                <h2>VPN: ¿Qué es una VPN y cómo funciona?</h2>
-                <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">CATEGORÍA: CIBERSEGURIDAD / REDES</p>
+                <h2>Virtualaj Privataj Retoj (VPN): Kio ĝi estas kaj kiel ĝi funkcias?</h2>
+                <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">KATEGORIO: CIBERSEKURECO / RETOJ</p>
               </div>
               <!--@odt-->
-<a href="../../files/vpn.es.odt" download style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ ↓ .ODT ORIGINAL ]</a>
-<!--/@odt-->
+<a href="../../files/vpn.eo.odt" download style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ ↓ .ODT ORIGINALA ]</a>
+<!--@odt-->
             </section>
 
             <article style="line-height: 1.8;">
-                <p>Una VPN (Virtual Private Network o Red Privada Virtual) es un servicio que crea un túnel digital cifrado entre tu dispositivo (teléfono, laptop, PC) y un servidor remoto administrado por el proveedor de la VPN.</p>
+                <p>Virtuala Privata Reto (VPN) estas servo, kiu kreas ciferitan digitan tunelon inter via aparato (telefono, lapotopo, PC) kaj loka servilo administrita de la VPN-provizisto.</p>
 
-                <p style="font-family: 'Share Tech Mono', monospace; color: var(--ctp-green);">Tu Dispositivo → Túnel Cifrado → Servidor VPN → Internet</p>
+                <p style="font-family: 'Share Tech Mono', monospace; color: var(--ctp-green);">Via Aparato → Ciferita Tunelo → VPN-servilo → Interreto</p>
 
-                <h3>¿Cómo funciona paso a paso?</h3>
+                <h3>Kiel ĝi funkias paŝe po paŝo?</h3>
                 <ul style="padding-left: 25px;">
-                    <li><strong>Cifrado de datos:</strong> Antes de que tu tráfico de datos salga de tu dispositivo, la VPN lo transforma en un código indescifrable.</li>
-                    <li><strong>El Túnel Cifrado:</strong> Ese tráfico viaja a través del proveedor de Internet (ISP) o de la red Wi-Fi en la que estás conectado, pero nadie en esa red puede ver el contenido de tus datos ni las páginas exactas a las que accedes.</li>
-                    <li><strong>Máscara de identidad (IP):</strong> El servidor VPN recibe tus datos cifrados, los descifra y los envía a Internet. Para las páginas web o servicios que visitas, la conexión no viene de tu casa o tu teléfono, sino del servidor de la VPN, ocultando tu dirección IP real.</li>
+                    <li><strong>Cifrado de datumoj:</strong> Antaŭ ol viaj datumtrafiko eliri de via aparato, la VPN transformas ĝin en nedecifrebleman kodon.</li>
+                    <li><strong>La Ciferita Tunelo:</strong> Tieta trafiko voaĝas tra la provizisto de Interreto (ISP) aŭ la Wi-Fi-reto en kiu vi estas konektita, sed neniu en tiu reto povas vidi la enhavon de viaj datumoj aŭ la precizaj paĝoj, kiujn vi aliris.</li>
+                    <li><strong>Masko de identeco (IP):</strong> La VPN-servilo ricevas viajn cifritajn datumojn, dekriptas ilin kaj sends ilin al Interreto. Por la retejaj paĝoj aŭ servoj, kiujn vi vizitas, la konekto ne venas de via domo aŭ via telefono, sed de la servilo de la VPN, kaŝante vian realan IP-adreson.</li>
                 </ul>
 
-                <h3>¿Por qué Usarlo?</h3>
-                <p>Usar una VPN resulta fundamentalmente útil para la mayoría de las personas por tres razones cotidianas: proteger la información personal en redes de alto riesgo, mantener la privacidad frente a quienes administran la conexión y permitir un acceso remoto completamente seguro. Más allá de servir para saltarse bloqueos regionales o censura, esta tecnología ofrece soluciones muy prácticas tanto para la vida diaria como para el entorno laboral, convirtiéndose en una herramienta accesible para cualquier usuario.</p>
-                <p>En el día a día, la VPN funciona como un escudo invisible cada vez que te conectas al Wi-Fi de una cafetería, un hotel o un aeropuerto. Al cifrar toda la información que entra y sale de tu dispositivo, evita que curiosos o ciberdelincuentes conectados a la misma red puedan interceptar tus contraseñas, mensajes o datos bancarios. Del mismo modo, impide que tu proveedor de Internet o el dueño del lugar donde te conectas rastreen las páginas exactas que visitas, lo que reduce el acoso de la publicidad dirigida y dificulta que las compañías telefónicas ralenticen tu velocidad según lo que estés viendo. Además, es un gran aliado al viajar, ya que mantiene tu actividad resguardada frente a la supervisión de redes desconocidas en otros países.</p>
-                <p>En el ámbito profesional y personal, una VPN es la clave para conectar lugares distantes de forma privada. Muchas empresas y escuelas la utilizan para que sus empleados o estudiantes puedan entrar a los sistemas internos, carpetas compartidas y herramientas de trabajo desde casa sin poner en riesgo la seguridad de la organización. A nivel personal, te permite conectar tu teléfono o laptop a los dispositivos de tu casa, como un disco duro con tus fotos o carpetas personales, de manera segura mientras estás fuera. Incluso puede ayudarte a recuperar el acceso a sitios web bloqueados por filtros estrictos de red en tu lugar de estudio o trabajo, aunque esto siempre deba hacerse de manera responsable.</p>
+                <h3>Kial uzi ĝin?</h3>
+                <p>Uzi VPN estas fundamente utileca por la plirumo de homoj pro tri ĉiutagajaj kialoj: protekti personajn informojn en riskaj retoj, konservi privatecon antaŭeŭ kiuj administras la konekton, kaj permesi pline sekuran jarakon.</p>
+                <p>Preter la serviĝon por eliri regionajn blokojn aŭ censuron, ĉi tiu teknologio oferas tre praktikajn solvojojn por la ĉiutaga vivo kaj por la labora medio, fariĝante alirebla por ĉiu uzanto.</p>
+                <p>En la ĉiutaga vivo, la VPN funkcias kiel nevidebla ŝieldo ĉiufoje kiam vi konektiĝas al la Wi-Fi de kafehujo, hotelo aŭ aerovejo. Per cifrado de ĉiu informo, kiu eniras kaj eliras el via aparato, ĝi evitas, ke kuriozoj aŭ kiberkrimuloj konektitaj al la sama reto povas intersekti viajn pasvortojn, mesaĝojn aŭ bankajn datumojn. Simile, ĝi malpermesas, ke via provizisto de Interreto aŭ la posedanto de la loko, kie vi konektiĝas, spuri la precizajn paĝojn, kiujn vi vizitas, kio reduktas la persekuton de celita reklamo kaj malfacigigas la kapablo de telefonaj kompanioj malrapidigi vian rapidecon laŭ tio, kion vi rigardas. Krome, ĝi estas granda aliancano kiam vi vojaĝas, ĉar ĝi tenas vian agadon protektita antaŭeŭ la supervido de nekonataj retoj en aliaj landoj.</p>
+                <p>En la profesia kaj persona kunteksto, VPN estas la ŝlosilo por konekti lojnajn lokojn private. Multaj kompanioj kajlernoj uzas ĝin por permesi siajn dungitojn aŭ studentojn eniri internajn sistemojn, partajajn dosierojn kaj laborajn ilojn de domo sen meti en riskon la sekurecon de la organizo. En persona maniero, ĝi permesas vin konekti vian telefonon aŭ lapotopon al la aparatoj de via domo, kiel ekz. eksterkerda disko kun viaj fotoj aŭ personaj dosieroj, sekure dum vi estas for. Eĉ ĝi povas helpi vin reiri al retejaj paĝoj blokitaj per striktaj retoj de filtri en via studejo aŭ laboro, kvankam tio ĉiam devas esti farita respondeble.</p>
 
-                <h3>¿Cuáles Recomendamos?</h3>
-                <p>A la hora de elegir un servicio, las mejores alternativas son aquellas que priorizan la privacidad de sus usuarios desde la base, minimizando la recolección de datos personales al crear cuentas y en las formas de pago, y evitando procesos invasivos de verificación de identidad (KYC). Bajo este enfoque centrado en el anonimato, las opciones más recomendables son <a href="https://mullvad.net/en" target="_blank">Mullvad</a>, <a href="https://obscura.com/" target="_blank">Obscura</a>, <a href="http://nym.com/" target="_blank">Nym</a>, <a href="https://www.ivpn.net/" target="_blank">IVPN</a>, <a href="https://xeovo.com/" target="_blank">Xeovo</a> y <a href="https://cryptostorm.is/" target="_blank">Cryptostorm</a>.</p>
+                <h3>Kiuj vi rekomendas?</h3>
+                <p>Kiam vi elektas servon, la plej bonaj alternativoj estas tiuj, kiuj prioritas la privatecon de siaj uzantoj de la bazo, minimigante la kolekton de personaj datumoj kiam oni kreas kontojn kaj en la pagmodoj, kaj evitas invazivajn procezojn de identeco (KYC). Sub ĉi tiu fokusiĝa pri anonimeco, la plej rekomendeblaj opcioj estas <a href="https://mullvad.net/en" target="_blank">Mullvad</a>, <a href="https://obscura.com/" target="_blank">Obscura</a>, <a href="http://nym.com/" target="_blank">Nym</a>, <a href="https://www.ivpn.net/" target="_blank">IVPN</a>, <a href="https://xeovo.com/" target="_blank">Xeovo</a> kaj <a href="https://cryptostorm.is/" target="_blank">Cryptostorm</a>.</p>
 
                 <hr style="margin: 30px 0; border: 0; border-top: 1px solid var(--ctp-surface0);">
 
                 <section style="margin-top: 30px;">
-                    <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">// PROVEEDORES RECOMENDADOS (SIN KYC)</p>
+                    <p style="color: var(--ctp-subtext0); font-family: 'Share Tech Mono', monospace;">// PROVIZISTOJ REKOMENDATAJ (SEN KYC)</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px;">
                         <a href="https://mullvad.net/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ MULLVAD ]</a>
                         <a href="https://obscura.com/" target="_blank" style="color: var(--ctp-green); font-family: 'Share Tech Mono', monospace; border: 1px solid var(--ctp-green); padding: 6px 12px; text-decoration: none; font-size: 0.9rem;">[ OBSCURA ]</a>
@@ -93,13 +94,11 @@
         </main>
     </div>
 
-<!--@footer-->
-<footer>
-        <p>2026 Mateo. Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
-        <p><a href="../../es/javascript.html" data-jslicense="1">Información de licencia de JavaScript</a></p>
+    <footer>
+        <p>2026 Mateo. Enhavo licencita sub <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        <p><a href="../javascript.html" data-jslicense="1">JavaScript-licencaj informoj</a></p>
     </footer>
     <script src="../../theme.js" defer></script>
     <script src="../../webmcp.js" defer></script>
-<!--/@footer-->
 </body>
 </html>
