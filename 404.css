@@ -1,0 +1,78 @@
+/* 404 page only. Reuses variables from style.css when they exist;
+   the fallbacks keep it readable if the names differ. Rename the
+   var(--…) lookups below to match your real custom properties. */
+
+.nf {
+  --nf-fg: var(--fg, var(--text, #1b1b1f));
+  --nf-bg: var(--bg, var(--background, #ffffff));
+  --nf-muted: var(--muted, #6b6b76);
+  --nf-accent: var(--accent, var(--link, #2457c5));
+
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 12vh 1.25rem 4rem;
+  color: var(--nf-fg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nf {
+    --nf-fg: var(--fg, var(--text, #e8e8ee));
+    --nf-muted: var(--muted, #9a9aa6);
+    --nf-accent: var(--accent, var(--link, #8ab0ff));
+  }
+}
+
+.nf-code {
+  margin: 0 0 .25rem;
+  font-size: clamp(4.5rem, 20vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.04em;
+  color: var(--nf-accent);
+}
+
+.nf-block {
+  margin-top: 2rem;
+}
+
+/* The English block is primary; the other languages are quieter. */
+.nf-block h1,
+.nf-block h2 {
+  margin: 0 0 .4rem;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.nf-block:not(:first-of-type) h2 {
+  font-size: 1.1rem;
+}
+
+.nf-block:not(:first-of-type) {
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--nf-muted) 35%, transparent);
+  color: var(--nf-muted);
+}
+
+.nf-block p {
+  margin: 0 0 .75rem;
+}
+
+.nf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nf-links a {
+  color: var(--nf-accent);
+  text-underline-offset: .2em;
+}
+
+.nf-links a:focus-visible {
+  outline: 2px solid var(--nf-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
