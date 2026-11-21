@@ -1,56 +1,195 @@
 {
+  "_comment": "Source of truth for page translations. tools/sitemap.py generates sitemap.xml from 'pages' and checks every page's canonical, hreflang and language switcher against it. webmcp.js mirrors the article URLs.",
   "name": "Mateo (@mateowoetam)",
   "url": "https://mateowoetam.codeberg.page/",
-  "description": "Developer, privacy advocate, and FOSS enthusiast. Privacy/FOSS consulting services and digital sovereignty guides in English and Spanish.",
+  "description": "Developer, privacy advocate, and FOSS enthusiast. Privacy/FOSS consulting services and digital sovereignty guides in English, Spanish, and Esperanto.",
   "license": "CC BY-SA 4.0",
   "defaultLanguage": "en",
-  "languages": ["en", "es"],
-  "pages": [
-    { "path": "/", "lang": "en", "title": "Home", "translation": "/es/index.html" },
-    { "path": "/services.html", "lang": "en", "title": "Services", "translation": "/es/servicios.html" },
-    { "path": "/writing.html", "lang": "en", "title": "Writing", "translation": "/es/textos.html" },
-    { "path": "/contact.html", "lang": "en", "title": "Contact", "translation": "/es/contacto.html" },
-    { "path": "/es/index.html", "lang": "es", "title": "Inicio" },
-    { "path": "/es/servicios.html", "lang": "es", "title": "Servicios" },
-    { "path": "/es/textos.html", "lang": "es", "title": "Textos" },
-    { "path": "/es/contacto.html", "lang": "es", "title": "Contacto" }
+  "languages": [
+    "en",
+    "es",
+    "eo"
   ],
-  "services": [
-    { "name": "PC Optimization & De-Bloat", "price": "$2,999 MXN" },
-    { "name": "Targeted Architecture Consultations & Linux Setup", "price": "$1,499 MXN EACH" },
-    { "name": "Physical Hardware Engineering & Repairs", "price": "RATE + HARDWARE COST" },
-    { "name": "Hardened Desktop OS Installation", "price": "$2,999 MXN + $500 MXN/h" },
-    { "name": "Hardened Mobile OS Deployment", "price": "$1,499 MXN + $500 MXN/h" },
-    { "name": "Digital Identity & Online Security Hardening", "price": "$1,499 MXN + $500 MXN/h" },
-    { "name": "The Digital Sovereignty Infrastructure", "price": "$2,999 MXN + $500 MXN/h" },
-    { "name": "Private Smart Homes & Isolated IoT Networking", "price": "$2,999 MXN + $500 MXN/h" },
-    { "name": "High-Performance Clusters & Local Compute Nodes", "price": "$2,999 MXN + $500 MXN/h" }
+  "pages": [
+    {
+      "id": "home",
+      "lastmod": "2026-10-19",
+      "path": {
+        "en": "/",
+        "es": "/es/index.html",
+        "eo": "/eo/index.html"
+      },
+      "title": {
+        "en": "Home",
+        "es": "Inicio",
+        "eo": "Hejmo"
+      }
+    },
+    {
+      "id": "services",
+      "lastmod": "2026-10-19",
+      "path": {
+        "en": "/services.html",
+        "es": "/es/servicios.html",
+        "eo": "/eo/servoj.html"
+      },
+      "title": {
+        "en": "Services",
+        "es": "Servicios",
+        "eo": "Servoj"
+      }
+    },
+    {
+      "id": "writing",
+      "lastmod": "2026-10-19",
+      "path": {
+        "en": "/writing.html",
+        "es": "/es/textos.html",
+        "eo": "/eo/skribado.html"
+      },
+      "title": {
+        "en": "Writing",
+        "es": "Textos",
+        "eo": "Skribado"
+      }
+    },
+    {
+      "id": "contact",
+      "lastmod": "2026-10-19",
+      "path": {
+        "en": "/contact.html",
+        "es": "/es/contacto.html",
+        "eo": "/eo/kontakto.html"
+      },
+      "title": {
+        "en": "Contact",
+        "es": "Contacto",
+        "eo": "Kontakto"
+      }
+    },
+    {
+      "id": "javascript",
+      "lastmod": "2026-10-20",
+      "path": {
+        "en": "/javascript.html",
+        "es": "/es/javascript.html",
+        "eo": "/eo/javascript.html"
+      },
+      "title": {
+        "en": "JavaScript license information",
+        "es": "Información de licencia de JavaScript",
+        "eo": "JavaScript-licencaj informoj"
+      }
+    }
   ],
   "articles": [
     {
-      "slug": "mensajeria",
-      "title": { "en": "Private Messaging", "es": "Mensajería Privada" },
-      "url": { "en": "/writing/mensajeria.html", "es": "/es/textos/mensajeria.html" }
+      "slug": "messaging",
+      "lastmod": "2026-10-19",
+      "title": {
+        "en": "Private Messaging and Secure Alternatives",
+        "es": "Mensajería Privada y Alternativas Seguras",
+        "eo": "Privata Mesaĝado kaj Sekuraj Alternativoj"
+      },
+      "url": {
+        "en": "/writing/messaging.html",
+        "es": "/es/textos/mensajeria.html",
+        "eo": "/eo/skribado/mesagado.html"
+      }
     },
     {
-      "slug": "contrasenas",
-      "title": { "en": "Password Managers and 2FA", "es": "Gestores de Contraseñas y 2FA" },
-      "url": { "en": "/writing/contrasenas.html", "es": "/es/textos/contrasenas.html" }
+      "slug": "passwords",
+      "lastmod": "2026-10-19",
+      "title": {
+        "en": "Password Managers and 2FA Authentication",
+        "es": "Gestores de Contraseñas y Autenticación 2FA",
+        "eo": "Pasvortaj Administrantoj kaj 2FA-Aŭtentikigo"
+      },
+      "url": {
+        "en": "/writing/passwords.html",
+        "es": "/es/textos/contrasenas.html",
+        "eo": "/eo/skribado/pasvortoj.html"
+      }
     },
     {
       "slug": "linux",
-      "title": { "en": "Linux and Digital Sovereignty", "es": "Linux y Soberanía Digital" },
-      "url": { "en": "/writing/linux.html", "es": "/es/textos/linux.html" }
+      "lastmod": "2026-10-19",
+      "title": {
+        "en": "Digital Sovereignty and Linux on the Desktop",
+        "es": "Soberanía Digital y Linux en el Escritorio",
+        "eo": "Cifereca Suvereneco kaj Linukso sur la Labortablo"
+      },
+      "url": {
+        "en": "/writing/linux.html",
+        "es": "/es/textos/linux.html",
+        "eo": "/eo/skribado/linux.html"
+      }
     },
     {
       "slug": "vpn",
-      "title": { "en": "VPNs and Privacy", "es": "VPN y Privacidad" },
-      "url": { "en": "/writing/vpn.html", "es": "/es/textos/vpn.html" }
+      "lastmod": "2026-10-19",
+      "title": {
+        "en": "VPN: What is a VPN and how does it work?",
+        "es": "VPN: ¿Qué es una VPN y cómo funciona?",
+        "eo": "VPN: Kio estas VPN kaj kiel ĝi funkcias?"
+      },
+      "url": {
+        "en": "/writing/vpn.html",
+        "es": "/es/textos/vpn.html",
+        "eo": "/eo/skribado/vpn.html"
+      }
     },
     {
-      "slug": "musica",
-      "title": { "en": "Owning Digital Music", "es": "Propiedad de la Música Digital" },
-      "url": { "en": "/writing/musica.html", "es": "/es/textos/musica.html" }
+      "slug": "music",
+      "lastmod": "2026-10-19",
+      "title": {
+        "en": "Owning Digital Music",
+        "es": "Propiedad de la Música Digital",
+        "eo": "Cifereca Muzika Posedo"
+      },
+      "url": {
+        "en": "/writing/music.html",
+        "es": "/es/textos/musica.html",
+        "eo": "/eo/skribado/muziko.html"
+      }
+    }
+  ],
+  "services": [
+    {
+      "name": "PC Optimization & De-Bloat",
+      "price": "$2,999 MXN"
+    },
+    {
+      "name": "Targeted Architecture Consultations & Linux Setup",
+      "price": "$1,499 MXN EACH"
+    },
+    {
+      "name": "Physical Hardware Engineering & Repairs",
+      "price": "RATE + HARDWARE COST"
+    },
+    {
+      "name": "Hardened Desktop OS Installation",
+      "price": "$2,999 MXN + $500 MXN/h"
+    },
+    {
+      "name": "Hardened Mobile OS Deployment",
+      "price": "$1,499 MXN + $500 MXN/h"
+    },
+    {
+      "name": "Digital Identity & Online Security Hardening",
+      "price": "$1,499 MXN + $500 MXN/h"
+    },
+    {
+      "name": "The Digital Sovereignty Infrastructure",
+      "price": "$2,999 MXN + $500 MXN/h"
+    },
+    {
+      "name": "Private Smart Homes & Isolated IoT Networking",
+      "price": "$2,999 MXN + $500 MXN/h"
+    },
+    {
+      "name": "High-Performance Clusters & Local Compute Nodes",
+      "price": "$2,999 MXN + $500 MXN/h"
     }
   ],
   "contact": {

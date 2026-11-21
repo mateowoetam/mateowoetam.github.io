@@ -1,23 +1,25 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0-or-later
 /*
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 WebMCP tools for mateowoetam.codeberg.page
 
 Self-hosted, dependency-free progressive enhancement. No-op in browsers
 without the WebMCP API (feature-detected). All tools are read-only except
+open_page (navigates) and set_theme (flips the theme checkbox).
 
-Written in a defensive (Hardened JavaScript-inspired) style without the
-SES shim: strict mode, closed-over state, records frozen before being
-shared, builtins captured at load time, and runtime whitelist validation
-of every input crossing the trust boundary (a tool schema's `enum` is a
-hint to the host, never enforcement).
-https://hardenedjs.org/
+Written to HardenedJS rules (https://hardenedjs.org/) without requiring
+the SES shim:
+  - strict mode; all state closed over, nothing written to globals;
+  - intrinsics captured at load time and called through uncurried
+    references, so later prototype tampering cannot redirect them;
+  - every record shared with the host is deep-frozen with harden(). If the
+    page runs under SES lockdown(), the real globalThis.harden is used;
+    otherwise a local deep-freeze stand-in is;
+  - host objects (DOM, fetch results) are never frozen or mutated;
+  - every input crossing the trust boundary is validated at runtime: the
+    browser does not enforce inputSchema, so `enum` is only a hint.
 
-The site is available in English (/) and Spanish (/es/). Tools take a
-`lang` argument; adding a language means extending LANGS and the page/slug
-tables below.
+Languages: English (/), Spanish (/es/), Esperanto (/eo/). The URL tables
+below mirror data/site.json; tools/sitemap.py --check validates the pages.
 
 Copyright (C) 2026 Mateo (@mateowoetam)
 
@@ -33,285 +35,321 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEE/aHB1Mmfl4E6u2IvBU5mQdG/KXUFAmrY33YACgkQBU5mQdG/
-KXWn8Q//QFuuMxknfaz6pRi0OPIPeDUwTfKmRv/vOMZYN3I2CWYNkHvA/C7/kttt
-2NZFWteVKhueTUKw9xd5YLcwwcsJHHgN1CH6xBKuQRGrNSkjNH28t1dWmE1qThyi
-3hZaYzZpVx8FBRe7vWdp8wvouQIBUmmDcIZlhZxbodv70EYQL4hNkQN/xIGYprxB
-AVP6/35wC9qwVkos4byRqbOTMlzn/2EYBcuQAEPWJ9zCqJK6wV5zhfmXF920vrRS
-BGGY7zVYux73vRXpRPS/tAoPnhNC/TTC0M7vxr81YVG61hgtZeg5kthgtrv7U5ue
-dEFPshdi9uUXUJ6VsCytl6BBtpfYetz6bRNHW/ErFOqe5bZAvUJUuaTuS3y6PiYl
-BT2xtv7ba8Zn4AY/xz4h3LiIsLFHmLIIolwvMK5PAxS0HHwcIhHD0bkTWsSa4Rik
-BUpihQL8Kt3TMbSsM2bJNqfu8ACIHJ6qcVNsGF3x76YwmcuhjpgJdET/UIiiIs0c
-WqhY3j0/bbptJdSAUcG8b81Y3i/+cU84aRB1m+7SvYAhzS+SYn0ggIX7qr6z9Vmi
-LVkqYpDHQQOQ67mAw+ORVHKvlY8fEY/KpkUEflZB+oyKVnld3VQD53Vc5ef03ZlN
-T4fHwA+AyVR5+2ziSEU+m42+p27PzYjA7nNc6Abw3Tsvyl6Hec4=
-=omMj
------END PGP SIGNATURE-----
 */
 (function () {
   'use strict';
 
-  if (!('modelContext' in document)) return;
+  var mc = document.modelContext || navigator.modelContext; /* navigator.* = Chrome <=146 */
+  if (!mc || typeof mc.registerTool !== 'function') return;
 
+  /* ---- captured intrinsics ------------------------------------------ */
+  var FnProto = Function.prototype;
+  var uncurryThis = FnProto.bind.bind(FnProto.call);
   var freeze = Object.freeze;
-  var map = Array.prototype.map;
+  var isFrozen = Object.isFrozen;
+  var getOwnPropertyNames = Object.getOwnPropertyNames;
+  var hasOwn = uncurryThis(Object.prototype.hasOwnProperty);
+  var indexOf = uncurryThis(Array.prototype.indexOf);
+  var arrayMap = uncurryThis(Array.prototype.map);
+  var join = uncurryThis(Array.prototype.join);
+  var trim = uncurryThis(String.prototype.trim);
+  var replace = uncurryThis(String.prototype.replace);
+  var match = uncurryThis(String.prototype.match);
+  var toUpperCase = uncurryThis(String.prototype.toUpperCase);
+  var querySelector = uncurryThis(Element.prototype.querySelector);
+  var querySelectorAll = uncurryThis(Element.prototype.querySelectorAll);
+  var docQuerySelector = uncurryThis(Document.prototype.querySelector);
+  var docQuerySelectorAll = uncurryThis(Document.prototype.querySelectorAll);
+  var getAttribute = uncurryThis(Element.prototype.getAttribute);
+  var textContentGet = uncurryThis(getOwnPropertyDescriptorGetter(Node.prototype, 'textContent'));
+  var registerTool = uncurryThis(mc.registerTool);
   var fetchFn = globalThis.fetch;
   var DOMParserCtor = globalThis.DOMParser;
-  var AbortControllerCtor = globalThis.AbortController;
+  var parseFromString = uncurryThis(DOMParserCtor.prototype.parseFromString);
+  var URLCtor = globalThis.URL;
+  var EventCtor = globalThis.Event;
+  var assign = uncurryThis(location.assign); /* [LegacyUnforgeable]: lives on the instance */
+  var matchMedia = typeof globalThis.matchMedia === 'function' ? globalThis.matchMedia.bind(globalThis) : null;
+  var ORIGIN = location.origin;
+  var loc = location;
 
-  var BASE = new URL('/', location.href).href;
+  function getOwnPropertyDescriptorGetter(obj, key) {
+    return Object.getOwnPropertyDescriptor(obj, key).get;
+  }
 
-  /* Language registry: code -> { prefix, texts.html, contact.html, article page fn } */
-  var LANGS = freeze({
-    en: freeze({
-      pagePrefix: '/',
-      articlePrefix: '/writing/',
-      writingIndex: '/writing.html',
-      contact: '/contact.html',
-      services: '/services.html',
-      home: '/'
-    }),
-    es: freeze({
-      pagePrefix: '/es/',
-      articlePrefix: '/es/textos/',
-      writingIndex: '/es/textos.html',
-      contact: '/es/contacto.html',
-      services: '/es/servicios.html',
-      home: '/es/index.html'
-    })
-    es: freeze({
-      pagePrefix: '/eo/',
-      articlePrefix: '/eo/skribado/',
-      writingIndex: '/eo/skribado.html',
-      contact: '/eo/kontakto.html',
-      services: '/eo/servoj.html',
-      home: '/eo/index.html'
-    })
+  /* harden(): real one under SES lockdown, else a local deep freeze for plain data. */
+  var harden = typeof globalThis.harden === 'function' ? globalThis.harden : function localHarden(root) {
+    /* Plain data and our own functions only; never pass host objects here. */
+    var stack = [root];
+    while (stack.length) {
+      var v = stack.pop();
+      if ((typeof v !== 'object' && typeof v !== 'function') || v === null || isFrozen(v)) continue;
+      freeze(v);
+      /* Own properties only: walking prototypes would freeze shared intrinsics
+         (e.g. AsyncFunction.prototype), which only lockdown() may do. */
+      var names = getOwnPropertyNames(v);
+      for (var i = 0; i < names.length; i++) stack.push(v[names[i]]);
+    }
+    return root;
+  };
+
+  /* ---- site tables (mirror data/site.json) --------------------------- */
+  var LANG_CODES = harden(['en', 'es', 'eo']);
+  var PAGE_KEYS = harden(['home', 'services', 'writing', 'contact', 'javascript']);
+  var ARTICLE_SLUGS = harden(['messaging', 'passwords', 'linux', 'vpn', 'music']);
+
+  var PAGES = harden({
+    en: { home: '/', services: '/services.html', writing: '/writing.html', contact: '/contact.html', javascript: '/javascript.html' },
+    es: { home: '/es/index.html', services: '/es/servicios.html', writing: '/es/textos.html', contact: '/es/contacto.html', javascript: '/es/javascript.html' },
+    eo: { home: '/eo/index.html', services: '/eo/servoj.html', writing: '/eo/skribado.html', contact: '/eo/kontakto.html', javascript: '/eo/javascript.html' }
   });
 
-  var LANG_CODES = freeze(['en', 'es', 'eo']);
+  /* Slugs are the stable English names; file names are localized. */
+  var ARTICLES = harden({
+    en: { messaging: '/writing/messaging.html', passwords: '/writing/passwords.html', linux: '/writing/linux.html', vpn: '/writing/vpn.html', music: '/writing/music.html' },
+    es: { messaging: '/es/textos/mensajeria.html', passwords: '/es/textos/contrasenas.html', linux: '/es/textos/linux.html', vpn: '/es/textos/vpn.html', music: '/es/textos/musica.html' },
+    eo: { messaging: '/eo/skribado/mesagado.html', passwords: '/eo/skribado/pasvortoj.html', linux: '/eo/skribado/linux.html', vpn: '/eo/skribado/vpn.html', music: '/eo/skribado/muziko.html' }
+  });
 
-  /* Article slugs are stable across languages (only the directory differs). */
-  var ARTICLE_SLUGS = freeze(['messaging', 'passwords', 'linux', 'vpn', 'music']);
-
-  var ARTICLE_TITLES = freeze({
-    en: freeze({
+  var ARTICLE_TITLES = harden({
+    en: {
       messaging: 'Private Messaging and Secure Alternatives',
       passwords: 'Password Managers and 2FA Authentication',
       linux: 'Digital Sovereignty and Linux on the Desktop',
       vpn: 'VPN: What is a VPN and how does it work?',
       music: 'Owning Digital Music'
-    }),
-    es: freeze({
+    },
+    es: {
       messaging: 'Mensajería Privada y Alternativas Seguras',
       passwords: 'Gestores de Contraseñas y Autenticación 2FA',
       linux: 'Soberanía Digital y Linux en el Escritorio',
       vpn: 'VPN: ¿Qué es una VPN y cómo funciona?',
       music: 'Propiedad de la Música Digital'
-    })
-    eo: freeze({
+    },
+    eo: {
       messaging: 'Privata Mesaĝado kaj Sekuraj Alternativoj',
       passwords: 'Pasvortaj Administrantoj kaj 2FA-Aŭtentikigo',
       linux: 'Cifereca Suvereneco kaj Linukso sur la Labortablo',
       vpn: 'VPN: Kio estas VPN kaj kiel ĝi funkcias?',
       music: 'Cifereca Muzika Posedo'
-    })
+    }
   });
 
-  var PAGE_SUMMARIES = freeze({
-    en: freeze([
-      freeze({ path: '/', summary: 'About Mateo; featured Codeberg repositories (NixOS config, keyboard layouts, CLI tools).' }),
-      freeze({ path: '/services.html', summary: 'Privacy/FOSS consulting services with prices in MXN.' }),
-      freeze({ path: '/writing.html', summary: 'Index of privacy and digital-sovereignty guides.' }),
-      freeze({ path: '/contact.html', summary: 'Email, GPG fingerprint, and social profiles.' })
-    ]),
-    es: freeze([
-      freeze({ path: '/es/index.html', summary: 'Sobre Mateo; repositorios destacados en Codeberg.' }),
-      freeze({ path: '/es/servicios.html', summary: 'Servicios de consultoría en privacidad y software libre con precios en MXN.' }),
-      freeze({ path: '/es/textos.html', summary: 'Índice de guías de privacidad y soberanía digital.' }),
-      freeze({ path: '/es/contacto.html', summary: 'Correo, huella GPG y perfiles sociales.' })
-    ])
-    eo: freeze([
-      freeze({ path: '/eo/index.html', summary: 'Pri Mateo; Elstaraj deponejoj sur Codeberg.' }),
-      freeze({ path: '/eo/servoj.html', summary: 'Privateco kaj libera programaro konsultservoj kun prezoj en MXN.' }),
-      freeze({ path: '/eo/skribado.html', summary: 'Gvidiloj pri privateco kaj ciferecaj suvereneco.' }),
-      freeze({ path: '/eo/kontakto.html', summary: 'Poŝto, GPG-piedsigno kaj sociaj profiloj.' })
-    ])
+  var PAGE_SUMMARIES = harden({
+    en: {
+      home: 'About Mateo; featured Codeberg repositories (NixOS config, keyboard layouts, CLI tools).',
+      services: 'Privacy/FOSS consulting services with prices in MXN.',
+      writing: 'Index of privacy and digital-sovereignty guides.',
+      contact: 'Email, GPG fingerprint, and social profiles.',
+      javascript: 'LibreJS license labels for every script on the site.'
+    },
+    es: {
+      home: 'Sobre Mateo; repositorios destacados en Codeberg.',
+      services: 'Servicios de consultoría en privacidad y software libre con precios en MXN.',
+      writing: 'Índice de guías de privacidad y soberanía digital.',
+      contact: 'Correo, huella GPG y perfiles sociales.',
+      javascript: 'Etiquetas de licencia LibreJS de cada script del sitio.'
+    },
+    eo: {
+      home: 'Pri Mateo; elstaraj deponejoj sur Codeberg.',
+      services: 'Konsultservoj pri privateco kaj libera programaro, kun prezoj en MXN.',
+      writing: 'Indekso de gvidiloj pri privateco kaj cifereca suvereneco.',
+      contact: 'Retpoŝto, GPG-fingrosigno kaj sociaj profiloj.',
+      javascript: 'LibreJS-permesilaj etikedoj por ĉiu skripto de la retejo.'
+    }
   });
 
-  var ctl = new AbortControllerCtor();
-  var opts = freeze({ signal: ctl.signal });
+  var GPG_KEY_URL = 'https://keys.openpgp.org/vks/v1/by-fingerprint/AC91A0AD921E4DE592180965441E486FD756EB4C';
 
-  function has(arr, value) {
-    return map.call(arr, function (x) { return x; }).indexOf(value) !== -1;
-  }
-
-  /* Only ever fetch same-origin site files from a fixed allowlist path. */
-  function fetchDoc(relPath) {
-    if (typeof relPath !== 'string' || relPath.indexOf('..') !== -1 || relPath.charAt(0) === '/') {
-      return Promise.reject(new Error('Refusing to fetch disallowed path'));
+  /* ---- helpers -------------------------------------------------------- */
+  function oneOf(list, value, name) {
+    if (typeof value !== 'string' || indexOf(list, value) === -1) {
+      throw new TypeError('Invalid ' + name + ': must be one of ' + join(list, ', '));
     }
-    var url = new URL(relPath, BASE).href;
-    if (url.indexOf(BASE) !== 0) {
-      return Promise.reject(new Error('Refusing to fetch cross-origin URL'));
-    }
-    return fetchFn(url).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.text();
-    }).then(function (html) {
-      return new DOMParserCtor().parseFromString(html, 'text/html');
-    });
+    return value;
   }
 
   function requireLang(input) {
-    var lang = input && input.lang;
+    var lang = input === undefined || input === null ? undefined : input.lang;
     if (lang === undefined) return 'en';
-    if (!has(LANG_CODES, lang)) throw new TypeError('Invalid lang: must be one of ' + LANG_CODES.join(', '));
-    return lang;
+    return oneOf(LANG_CODES, lang, 'lang');
   }
 
-  document.modelContext.registerTool(freeze({
+  function text(node) {
+    return node ? trim(replace(textContentGet(node), /\s+/g, ' ')) : null;
+  }
+
+  function fullUrl(path) { return new URLCtor(path, ORIGIN).href; }
+
+  /* Only fetch same-origin paths taken from the tables above. */
+  function isAllowedPath(path) {
+    var langs = LANG_CODES;
+    for (var i = 0; i < langs.length; i++) {
+      var l = langs[i], k;
+      for (k = 0; k < PAGE_KEYS.length; k++) if (PAGES[l][PAGE_KEYS[k]] === path) return true;
+      for (k = 0; k < ARTICLE_SLUGS.length; k++) if (ARTICLES[l][ARTICLE_SLUGS[k]] === path) return true;
+    }
+    return false;
+  }
+
+  function fetchDoc(path, signal) {
+    if (!isAllowedPath(path)) return Promise.reject(new Error('Refusing to fetch path outside the site table'));
+    var url = new URLCtor(path, ORIGIN);
+    if (url.origin !== ORIGIN) return Promise.reject(new Error('Refusing to fetch cross-origin URL'));
+    return fetchFn(url.href, { signal: signal, credentials: 'omit', redirect: 'error' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + path);
+      return r.text();
+    }).then(function (html) {
+      return parseFromString(new DOMParserCtor(), html, 'text/html');
+    });
+  }
+
+  function langSchema() {
+    return { type: 'string', enum: LANG_CODES, description: 'Language code: en (English, default), es (Spanish), eo (Esperanto).' };
+  }
+
+  function register(tool) {
+    var p = registerTool(mc, harden(tool));
+    if (p && typeof p.then === 'function') p.then(undefined, function () { /* name clash or unsupported: stay silent */ });
+  }
+
+  /* ---- tools ---------------------------------------------------------- */
+  register({
     name: 'list_site_pages',
     title: 'List site pages',
-    description: 'Pages available on mateowoetam.codeberg.page, a privacy/FOSS consulting and writing site, in a given language (default en).',
-    inputSchema: freeze({
-      type: 'object',
-      properties: freeze({
-        lang: { type: 'string', enum: LANG_CODES, description: 'Language code; defaults to en' }
-      })
-    }),
-    annotations: freeze({ readOnlyHint: true }),
-    execute: async function (input) { return PAGE_SUMMARIES[requireLang(input)]; }
-  }), opts);
+    description: 'Pages and articles on mateowoetam.codeberg.page (privacy/FOSS consulting and writing), with absolute URLs, in one language (default en).',
+    inputSchema: { type: 'object', properties: { lang: langSchema() } },
+    annotations: { readOnlyHint: true },
+    execute: async function (input) {
+      var lang = requireLang(input);
+      return harden({
+        lang: lang,
+        pages: arrayMap(PAGE_KEYS, function (key) {
+          return { id: key, url: fullUrl(PAGES[lang][key]), summary: PAGE_SUMMARIES[lang][key] };
+        }),
+        articles: arrayMap(ARTICLE_SLUGS, function (slug) {
+          return { slug: slug, url: fullUrl(ARTICLES[lang][slug]), title: ARTICLE_TITLES[lang][slug] };
+        })
+      });
+    }
+  });
 
-  document.modelContext.registerTool(freeze({
+  register({
     name: 'get_service_catalog',
     title: 'Get services and prices',
-    description: 'Return each consulting service: name, price, summary, and tools used.',
-    inputSchema: freeze({
-      type: 'object',
-      properties: freeze({
-        lang: { type: 'string', enum: LANG_CODES, description: 'Language code; defaults to en' }
-      })
-    }),
-    annotations: freeze({ readOnlyHint: true }),
-    execute: async function (input) {
+    description: 'Return each consulting service: name, price, summary, details and tools used.',
+    inputSchema: { type: 'object', properties: { lang: langSchema() } },
+    annotations: { readOnlyHint: true },
+    execute: async function (input, ctx) {
       var lang = requireLang(input);
-      var doc = await fetchDoc(LANGS[lang].services);
-      return map.call(doc.querySelectorAll('.service-card'), function (card) {
-        var h3 = card.querySelector('h3');
-        var badge = card.querySelector('.price-badge');
-        var sub = card.querySelector('.service-header p');
-        var det = card.querySelector(':scope > p');
-        return freeze({
-          name: h3 ? h3.textContent.trim() : null,
-          price: badge ? badge.textContent.trim() : null,
-          summary: sub ? sub.textContent.trim() : null,
-          details: det ? det.textContent.trim() : null,
-          tools: freeze(map.call(card.querySelectorAll('.tag'), function (t) { return t.textContent.trim(); }))
-        });
-      });
+      var doc = await fetchDoc(PAGES[lang].services, ctx && ctx.signal);
+      return harden(arrayMap(docQuerySelectorAll(doc, '.service-card'), function (card) {
+        return {
+          name: text(querySelector(card, 'h3')),
+          price: text(querySelector(card, '.price-badge')),
+          summary: text(querySelector(card, '.service-header p')),
+          details: text(querySelector(card, ':scope > p')),
+          tools: arrayMap(querySelectorAll(card, '.tag'), text)
+        };
+      }));
     }
-  }), opts);
+  });
 
-  document.modelContext.registerTool(freeze({
+  register({
     name: 'get_article',
     title: 'Read an article',
-    description: 'Fetch one of the guides (available in English, Spanish, and Esperanto) and return its full text.',
-    inputSchema: freeze({
+    description: 'Fetch one of the guides in English, Spanish or Esperanto and return its full text. Slugs are the same in every language.',
+    inputSchema: {
       type: 'object',
-      properties: freeze({
-        slug: { type: 'string', enum: ARTICLE_SLUGS, description: 'Article file name without .html' },
-        lang: { type: 'string', enum: LANG_CODES, description: 'Language code; defaults to en' }
-      }),
-      required: freeze(['slug'])
-    }),
-    annotations: freeze({ readOnlyHint: true }),
-    execute: async function (input) {
-      var slug = input && input.slug;
-      if (!has(ARTICLE_SLUGS, slug)) throw new TypeError('Invalid slug: must be one of ' + ARTICLE_SLUGS.join(', '));
+      properties: {
+        slug: { type: 'string', enum: ARTICLE_SLUGS, description: 'Article id' },
+        lang: langSchema()
+      },
+      required: ['slug']
+    },
+    annotations: { readOnlyHint: true },
+    execute: async function (input, ctx) {
+      var slug = oneOf(ARTICLE_SLUGS, input && input.slug, 'slug');
       var lang = requireLang(input);
-      var doc = await fetchDoc(LANGS[lang].articlePrefix.replace(/^\//, '') + slug + '.html');
-      var article = doc.querySelector('article');
-      return freeze({
+      var path = ARTICLES[lang][slug];
+      var doc = await fetchDoc(path, ctx && ctx.signal);
+      return harden({
         lang: lang,
+        slug: slug,
+        url: fullUrl(path),
         title: ARTICLE_TITLES[lang][slug],
-        text: article ? article.innerText.trim() : null
+        text: text(docQuerySelector(doc, 'article'))
       });
     }
-  }), opts);
+  });
 
-  document.modelContext.registerTool(freeze({
+  register({
     name: 'get_contact',
     title: 'Get contact details',
-    description: 'Return email address and GPG fingerprint.',
-    inputSchema: freeze({
-      type: 'object',
-      properties: freeze({
-        lang: { type: 'string', enum: LANG_CODES, description: 'Language code; defaults to en' }
-      })
-    }),
-    annotations: freeze({ readOnlyHint: true }),
-    execute: async function (input) {
+    description: 'Return the contact email address and GPG fingerprint, as published on the contact page.',
+    inputSchema: { type: 'object', properties: { lang: langSchema() } },
+    annotations: { readOnlyHint: true },
+    execute: async function (input, ctx) {
       var lang = requireLang(input);
-      var doc = await fetchDoc(LANGS[lang].contact);
-      var mail = doc.querySelector('a[href^="mailto:"]');
-      var small = doc.querySelector('.project-card small');
-      var fp = small ? small.textContent.replace(/^(Fingerprint|Huella):\s*/, '').replace(/\[.*$/, '').trim() : null;
-      return freeze({
-        email: mail ? mail.getAttribute('href').replace('mailto:', '') : null,
-        gpgFingerprint: fp,
-        gpgKeyUrl: 'https://keys.openpgp.org/vks/v1/by-fingerprint/AC91A0AD921E4DE592180965441E486FD756EB4C'
+      var doc = await fetchDoc(PAGES[lang].contact, ctx && ctx.signal);
+      var mail = docQuerySelector(doc, 'a[href^="mailto:"]');
+      var copy = docQuerySelector(doc, '#copy-gpg');
+      var fpSource = copy ? getAttribute(copy, 'data-copy') : text(docQuerySelector(doc, '.project-card small'));
+      var fp = fpSource ? match(replace(fpSource, /\s+/g, ''), /[0-9A-Fa-f]{40}/) : null;
+      return harden({
+        email: mail ? replace(getAttribute(mail, 'href'), /^mailto:/, '') : null,
+        gpgFingerprint: fp ? toUpperCase(fp[0]) : null,
+        gpgKeyUrl: GPG_KEY_URL
       });
     }
-  }), opts);
+  });
 
-  document.modelContext.registerTool(freeze({
+  register({
     name: 'open_page',
     title: 'Navigate the site',
-    description: 'Navigate the visible browser to known site pages (keyed by language).',
-    inputSchema: freeze({
+    description: 'Navigate the visible browser to a site page, or to an article when `slug` is given.',
+    inputSchema: {
       type: 'object',
-      properties: freeze({
-        page: { type: 'string', enum: freeze(['home', 'services', 'writing', 'contact']), description: 'Which page to open' },
-        lang: { type: 'string', enum: LANG_CODES, description: 'Language code; defaults to en' }
-      }),
-      required: freeze(['page'])
-    }),
-    annotations: freeze({ readOnlyHint: false, consequentialHint: false }),
-    execute: async function (input) {
-      var page = input && input.page;
-      if (!has(freeze(['home', 'services', 'writing', 'contact']), page)) {
-        throw new TypeError('Invalid page: must be one of home, services, writing, contact');
+      properties: {
+        page: { type: 'string', enum: PAGE_KEYS, description: 'Which page to open (ignored when slug is set)' },
+        slug: { type: 'string', enum: ARTICLE_SLUGS, description: 'Open this article instead of a page' },
+        lang: langSchema()
       }
-      var lang = requireLang(input);
-      location.assign(BASE.replace(/\/$/, '') + LANGS[lang][page]);
-      return 'Navigating to ' + page + ' (' + lang + ')';
-    }
-  }), opts);
-
-  document.modelContext.registerTool(freeze({
-    name: 'set_theme',
-    title: 'Toggle the site theme',
-    description: 'Switch the visible site theme between light and dark by toggling the CSS theme checkbox.',
-    inputSchema: freeze({
-      type: 'object',
-      properties: freeze({
-        mode: { type: 'string', enum: freeze(['light', 'dark']) }
-      }),
-      required: freeze(['mode'])
-    }),
-    annotations: freeze({ readOnlyHint: false, consequentialHint: false }),
+    },
+    annotations: { readOnlyHint: false },
     execute: async function (input) {
-      var mode = input && input.mode;
-      if (mode !== 'light' && mode !== 'dark') throw new TypeError('Invalid mode: must be "light" or "dark"');
+      var lang = requireLang(input);
+      var path;
+      if (input && input.slug !== undefined) {
+        path = ARTICLES[lang][oneOf(ARTICLE_SLUGS, input.slug, 'slug')];
+      } else {
+        path = PAGES[lang][oneOf(PAGE_KEYS, input && input.page, 'page')];
+      }
+      assign(loc, fullUrl(path));
+      return 'Navigating to ' + path;
+    }
+  });
+
+  register({
+    name: 'set_theme',
+    title: 'Set the site theme',
+    description: 'Switch the visible site theme to light or dark. The choice is remembered across pages.',
+    inputSchema: {
+      type: 'object',
+      properties: { mode: { type: 'string', enum: ['light', 'dark'] } },
+      required: ['mode']
+    },
+    annotations: { readOnlyHint: false },
+    execute: async function (input) {
+      var mode = oneOf(['light', 'dark'], input && input.mode, 'mode');
       var cb = document.getElementById('theme-toggle');
       if (!cb) return 'Theme toggle not present on this page.';
-      cb.checked = mode === 'dark';
+      /* Same mapping as theme.js / style.css: checked = the opposite of the system scheme. */
+      var systemLight = !!(matchMedia && matchMedia('(prefers-color-scheme: light)').matches);
+      cb.checked = systemLight ? mode === 'dark' : mode === 'light';
+      cb.dispatchEvent(new EventCtor('change', { bubbles: true })); /* lets theme.js persist it */
       return 'Theme set to ' + mode + '.';
     }
-  }), opts);
+  });
 })();
 // @license-end

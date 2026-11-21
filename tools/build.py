@@ -162,6 +162,8 @@ def build_page(page: dict, site: dict, nav: dict, banners: dict, footers: dict) 
     extra = ""
     if "contact" in page["file"] and page["type"] == "chrome":
         extra = f'    <script src="{root}site.js" defer></script>'
+    elif page["type"] == "article":
+        extra = f'    <script src="{root}speech.js" defer></script>'
     jslicense = JSLICENSE[lang]
     footer_vars = {
         "root": root,

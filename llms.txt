@@ -1,10 +1,10 @@
 # Mateo (@mateowoetam)
 
-> Developer, privacy advocate, and FOSS enthusiast. Offers privacy/FOSS consulting services (prices in MXN, remote and on-site in Mexico) and publishes digital sovereignty guides in English and Spanish.
+> Developer, privacy advocate, and FOSS enthusiast. Offers privacy/FOSS consulting services (prices in MXN, remote and on-site in Mexico) and publishes digital sovereignty guides in English, Spanish, and Esperanto.
 
 This is a static HTML site with no trackers, no cookies, and no third-party requests. Content is licensed CC BY-SA 4.0. A machine-readable site index is available at [/data/site.json](/data/site.json).
 
-Languages: English (default, `/`) and Spanish (`/es/`). Every page has a language switcher; articles are paired via `hreflang`.
+Languages: English (default, `/`), Spanish (`/es/`), and Esperanto (`/eo/`). Every page has a language switcher and `hreflang` alternates; [/sitemap.xml](/sitemap.xml) lists all three.
 
 ## Pages (English)
 
@@ -12,7 +12,7 @@ Languages: English (default, `/`) and Spanish (`/es/`). Every page has a languag
 - [Services](/services.html): Consulting catalog — PC de-bloat, Linux installs, hardened desktop/mobile OS, identity hardening, home servers, smart homes, local AI compute
 - [Writing](/writing.html): Index of privacy and digital-sovereignty guides
 - [Contact](/contact.html): Email, GPG fingerprint, social profiles
-- [JavaScript license information](/javascript.html): LibreJS web labels for every script served by the site (all CC BY-SA 4.0)
+- [JavaScript license information](/javascript.html): LibreJS web labels for every script served by the site (all AGPL-3.0-or-later)
 
 ## Páginas (Español)
 
@@ -20,15 +20,25 @@ Languages: English (default, `/`) and Spanish (`/es/`). Every page has a languag
 - [Servicios](/es/servicios.html): Catálogo de servicios de consultoría
 - [Textos](/es/textos.html): Índice de guías de privacidad y soberanía digital
 - [Contacto](/es/contacto.html): Correo, huella GPG, redes sociales
-- [Información de licencia de JavaScript](/es/javascript.html): Etiquetas LibreJS para cada script del sitio (todos CC BY-SA 4.0)
+- [Información de licencia de JavaScript](/es/javascript.html): Etiquetas LibreJS para cada script del sitio (todos AGPL-3.0-or-later)
 
-## Articles (English / Español)
+## Paĝoj (Esperanto)
 
-- Private Messaging / Mensajería Privada: [/writing/mensajeria.html](/writing/mensajeria.html) · [/es/textos/mensajeria.html](/es/textos/mensajeria.html)
-- Password Managers and 2FA / Gestores de Contraseñas y 2FA: [/writing/contrasenas.html](/writing/contrasenas.html) · [/es/textos/contrasenas.html](/es/textos/contrasenas.html)
-- Linux and Digital Sovereignty / Linux y Soberanía Digital: [/writing/linux.html](/writing/linux.html) · [/es/textos/linux.html](/es/textos/linux.html)
-- VPNs and Privacy / VPN y Privacidad: [/writing/vpn.html](/writing/vpn.html) · [/es/textos/vpn.html](/es/textos/vpn.html)
-- Owning Digital Music / Propiedad de la Música Digital: [/writing/musica.html](/writing/musica.html) · [/es/textos/musica.html](/es/textos/musica.html)
+- [Hejmo](/eo/index.html): Pri Mateo kaj elstaraj deponejoj sur Codeberg
+- [Servoj](/eo/servoj.html): Katalogo de konsultservoj
+- [Skribado](/eo/skribado.html): Indekso de gvidiloj pri privateco kaj cifereca suvereneco
+- [Kontakto](/eo/kontakto.html): Retpoŝto, GPG-fingrosigno, sociaj profiloj
+- [JavaScript-licencaj informoj](/eo/javascript.html): LibreJS-etikedoj por ĉiu skripto de la retejo (ĉiuj AGPL-3.0-or-later)
+
+## Articles (English / Español / Esperanto)
+
+- Private Messaging and Secure Alternatives / Mensajería Privada y Alternativas Seguras / Privata Mesaĝado kaj Sekuraj Alternativoj: [/writing/messaging.html](/writing/messaging.html) · [/es/textos/mensajeria.html](/es/textos/mensajeria.html) · [/eo/skribado/mesagado.html](/eo/skribado/mesagado.html)
+- Password Managers and 2FA Authentication / Gestores de Contraseñas y Autenticación 2FA / Pasvortaj Administrantoj kaj 2FA-Aŭtentikigo: [/writing/passwords.html](/writing/passwords.html) · [/es/textos/contrasenas.html](/es/textos/contrasenas.html) · [/eo/skribado/pasvortoj.html](/eo/skribado/pasvortoj.html)
+- Digital Sovereignty and Linux on the Desktop / Soberanía Digital y Linux en el Escritorio / Cifereca Suvereneco kaj Linukso sur la Labortablo: [/writing/linux.html](/writing/linux.html) · [/es/textos/linux.html](/es/textos/linux.html) · [/eo/skribado/linux.html](/eo/skribado/linux.html)
+- VPN: What is a VPN and how does it work? / VPN: ¿Qué es una VPN y cómo funciona? / VPN: Kio estas VPN kaj kiel ĝi funkcias?: [/writing/vpn.html](/writing/vpn.html) · [/es/textos/vpn.html](/es/textos/vpn.html) · [/eo/skribado/vpn.html](/eo/skribado/vpn.html)
+- Owning Digital Music / Propiedad de la Música Digital / Cifereca Muzika Posedo: [/writing/music.html](/writing/music.html) · [/es/textos/musica.html](/es/textos/musica.html) · [/eo/skribado/muziko.html](/eo/skribado/muziko.html)
+
+On browsers with WebMCP, every page registers tools (`list_site_pages`, `get_service_catalog`, `get_article`, `get_contact`, `open_page`, `set_theme`); each takes `lang` = `en` | `es` | `eo`.
 
 ## Contact
 
